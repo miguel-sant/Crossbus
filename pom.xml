@@ -23,4 +23,11 @@
             <version>RELEASE210</version>
         </dependency>
     </dependencies>
+    <build>
+    <resources>
+        <resource>
+            <directory>src/main/java</directory>
+        </resource>
+     </resources>
+    </build>
 </project>
