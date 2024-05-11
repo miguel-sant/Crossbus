@@ -34,7 +34,7 @@ public class telaOnibus extends javax.swing.JFrame {
     public telaOnibus() {
         initComponents();
        
-         carregarDadosTabela();
+        carregarDadosTabela();
         setTitle("INFORMAÇÕES DOS ÔNIBUS");
         setSize(1280, 860);
         setLocationRelativeTo(null);

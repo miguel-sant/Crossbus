@@ -32,7 +32,11 @@ public class telaLogin extends javax.swing.JFrame {
     
     public telaLogin() {
         initComponents();
+<<<<<<< HEAD
         setSize(1280, 860);
+=======
+        setSize(1200, 900);
+>>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -94,6 +98,7 @@ public class telaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+<<<<<<< HEAD
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -105,6 +110,19 @@ public class telaLogin extends javax.swing.JFrame {
         esqueceuSenha = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         newCadastro = new javax.swing.JLabel();
+=======
+        jLabel2 = new javax.swing.JLabel();
+        email = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        btnAcessar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        esqueceuSenha = new javax.swing.JLabel();
+        senha = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        newCadastro = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+>>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -118,6 +136,7 @@ public class telaLogin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CROSSBUS");
+<<<<<<< HEAD
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 1183, -1, -1));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 952, -1, -1));
@@ -141,6 +160,13 @@ public class telaLogin extends javax.swing.JFrame {
                 btnAcessarActionPerformed(evt);
             }
         });
+=======
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Email");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
+>>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
 
         email.setBorder(null);
         email.addActionListener(new java.awt.event.ActionListener() {
@@ -148,12 +174,41 @@ public class telaLogin extends javax.swing.JFrame {
                 emailActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
+=======
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 210, 30));
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Senha");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, -1, -1));
+
+        btnAcessar.setText("Acessar");
+        btnAcessar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAcessar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcessarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAcessar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 1183, -1, -1));
+
+        esqueceuSenha.setForeground(new java.awt.Color(0, 153, 255));
+        esqueceuSenha.setText("Esqueci senha");
+        esqueceuSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        esqueceuSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                esqueceuSenhaMouseClicked(evt);
+            }
+        });
+        getContentPane().add(esqueceuSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 108, -1));
+>>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
 
         senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -181,11 +236,23 @@ public class telaLogin extends javax.swing.JFrame {
         newCadastro.setForeground(new java.awt.Color(102, 255, 255));
         newCadastro.setText("Cadastre-se aqui");
         newCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+=======
+        getContentPane().add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 210, 30));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 952, -1, -1));
+
+        jLabel6.setText("Ainda não tem um conta ?");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, -1, -1));
+
+        newCadastro.setForeground(new java.awt.Color(51, 153, 255));
+        newCadastro.setText("Cadastre-se aqui");
+        newCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+>>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
         newCadastro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 newCadastroMouseClicked(evt);
             }
         });
+<<<<<<< HEAD
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -259,6 +326,32 @@ public class telaLogin extends javax.swing.JFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 720, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background-cadastro-home.jpg"))); // NOI18N
+=======
+        getContentPane().add(newCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, 137, -1));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setDoubleBuffered(false);
+        jPanel1.setOpaque(false);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 380, 370));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("/home/miguelvarjao/Downloads/twitter.png")); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 720, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon("/home/miguelvarjao/Downloads/youtube.png")); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 720, -1, -1));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon("/home/miguelvarjao/Downloads/instagram.png")); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 720, -1, -1));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon("/home/miguelvarjao/Downloads/facebook.png")); // NOI18N
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 720, -1, -1));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon("/home/miguelvarjao/Downloads/linkedin.png")); // NOI18N
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 720, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("/home/miguelvarjao/Downloads/1336970712_1335817671_img_6816.jpg")); // NOI18N
+>>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -100, -1, 1050));
 
         pack();
@@ -319,10 +412,13 @@ public class telaLogin extends javax.swing.JFrame {
         // Exibe a tela de cadastro
         cadastro.setVisible(true);
     }//GEN-LAST:event_newCadastroMouseClicked
+<<<<<<< HEAD
 
     private void btnAcessarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAcessarMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAcessarMouseClicked
+=======
+>>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
     
     private boolean consultarUsuario(String email, String senha) {
         // Conexão com o banco de dados
