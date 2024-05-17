@@ -1,41 +1,10 @@
-passagensrodoviarias\telaHome$4.class
-passagensrodoviarias\telaOnibus$7.class
-<<<<<<< HEAD
-passagensrodoviarias\telaCadastro$6.class
-passagensrodoviarias\telaOnibus$10.class
-passagensrodoviarias\telaLogin$RoundedTextField.class
-passagensrodoviarias\telaOnibus$11.class
-passagensrodoviarias\telaCadastro$RoundedPanel.class
-passagensrodoviarias\CadastrarVeiculos$2.class
-passagensrodoviarias\telaCadastro$7.class
-=======
-passagensrodoviarias\TelaCidade$1.class
-passagensrodoviarias\CadastrarCidade$2.class
-passagensrodoviarias\CadastrarCidade.class
-passagensrodoviarias\telaOnibus$10.class
-passagensrodoviarias\TelaCidade$8.class
-passagensrodoviarias\TelaCidade$5.class
-passagensrodoviarias\TelaCidade$2.class
-passagensrodoviarias\TelaCidade.class
-passagensrodoviarias\TelaCidade$9.class
-passagensrodoviarias\telaLogin$RoundedTextField.class
-passagensrodoviarias\telaOnibus$11.class
-passagensrodoviarias\TelaCidade$6.class
-passagensrodoviarias\CadastrarVeiculos$2.class
-passagensrodoviarias\TelaCidade$3.class
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
-passagensrodoviarias\telaLogin$RoundedPanel.class
-passagensrodoviarias\telaOnibus$5.class
-passagensrodoviarias\telaOnibus$8.class
-passagensrodoviarias\telaHome$3.class
-passagensrodoviarias\CadastrarVeiculos$1.class
-passagensrodoviarias\TelaCidade$7.class
-passagensrodoviarias\telaOnibus$6.class
-<<<<<<< HEAD
-passagensrodoviarias\telaLogin$8.class
-=======
-passagensrodoviarias\CadastrarCidade$1.class
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
-passagensrodoviarias\telaOnibus$9.class
-passagensrodoviarias\CadastrarVeiculos.class
-passagensrodoviarias\TelaCidade$4.class
+passagensrodoviarias/TelaPagamento.class
+passagensrodoviarias/TelaPagamento$4.class
+passagensrodoviarias/TelaPagamento$1.class
+passagensrodoviarias/telaCompraPassagem$4.class
+passagensrodoviarias/TelaPagamento$5.class
+passagensrodoviarias/TelaPagamento$NumberOnlyFilter.class
+passagensrodoviarias/TelaPagamento$2.class
+passagensrodoviarias/telaCompraPassagem$2.class
+passagensrodoviarias/telaCompraPassagem$3.class
+passagensrodoviarias/TelaPagamento$3.class
