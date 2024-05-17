@@ -39,17 +39,11 @@ public class telaHome extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         manterVeiculos = new javax.swing.JLabel();
-<<<<<<< HEAD
-        jLabel11 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-=======
         manterViagens = new javax.swing.JLabel();
         faturamento = new javax.swing.JLabel();
         passagens = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         manterCidade = new javax.swing.JLabel();
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -92,32 +86,13 @@ public class telaHome extends javax.swing.JFrame {
         jLabel12.setText("FATURAMENTO");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, -1, -1));
 
-<<<<<<< HEAD
-        manterVeiculos.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\PassagensRodoviarias\\src\\main\\java\\imagens\\bus-stop.png")); // NOI18N
-=======
         manterVeiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bus-stop.png"))); // NOI18N
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
         manterVeiculos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manterVeiculos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 manterVeiculosMouseClicked(evt);
             }
         });
-<<<<<<< HEAD
-        jPanel1.add(manterVeiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 120, 100));
-
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\PassagensRodoviarias\\src\\main\\java\\imagens\\ponteiro-de-parada-de-onibus(1).png")); // NOI18N
-        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\PassagensRodoviarias\\src\\main\\java\\imagens\\grafico-de-crescimento.png")); // NOI18N
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
-
-        jLabel18.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\OneDrive\\Documentos\\PassagensRodoviarias\\src\\main\\java\\imagens\\forma-de-pagamento(1).png")); // NOI18N
-        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 120, 100));
-=======
         jPanel1.add(manterVeiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 120, 100));
 
         manterViagens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ponteiro-de-parada-de-onibus(1).png"))); // NOI18N
@@ -143,7 +118,6 @@ public class telaHome extends javax.swing.JFrame {
             }
         });
         jPanel1.add(manterCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 140, 130));
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 780, 470));
 
@@ -169,13 +143,11 @@ public class telaHome extends javax.swing.JFrame {
         telaOnibus.setVisible(true);
     }//GEN-LAST:event_manterVeiculosMouseClicked
 
-<<<<<<< HEAD
-=======
     private void manterCidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manterCidadeMouseClicked
-       
+        TelaCidade telaCidade = new TelaCidade();
+        telaCidade.setVisible(true);
     }//GEN-LAST:event_manterCidadeMouseClicked
 
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
     /**
      * @param args the command line arguments
      */
@@ -213,21 +185,6 @@ public class telaHome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Logout;
-<<<<<<< HEAD
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel manterVeiculos;
-    private javax.swing.JLabel nomeDoUsuario;
-=======
     private javax.swing.JLabel faturamento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -243,6 +200,5 @@ public class telaHome extends javax.swing.JFrame {
     private javax.swing.JLabel manterViagens;
     private javax.swing.JLabel nomeDoUsuario;
     private javax.swing.JLabel passagens;
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
     // End of variables declaration//GEN-END:variables
 }
