@@ -86,7 +86,8 @@ public class telaRota extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         selectOnibus = new javax.swing.JComboBox<>();
         atualizarRotas = new javax.swing.JButton();
-        atualizarRota = new javax.swing.JButton();
+        excluirRota = new javax.swing.JButton();
+        buttonVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -195,13 +196,21 @@ public class telaRota extends javax.swing.JFrame {
         });
         jPanel1.add(atualizarRotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 750, 110, 40));
 
-        atualizarRota.setText("Excluir Rota");
-        atualizarRota.addActionListener(new java.awt.event.ActionListener() {
+        excluirRota.setText("Excluir Rota");
+        excluirRota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atualizarRotaActionPerformed(evt);
+                excluirRotaActionPerformed(evt);
             }
         });
-        jPanel1.add(atualizarRota, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 580, 110, 40));
+        jPanel1.add(excluirRota, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 580, 110, 40));
+
+        buttonVoltar.setText("Voltar");
+        buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonVoltarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(buttonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 750, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -277,9 +286,49 @@ public class telaRota extends javax.swing.JFrame {
         atualizarTabelaRotas();
     }//GEN-LAST:event_atualizarRotasActionPerformed
 
-    private void atualizarRotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarRotaActionPerformed
-        excluirDados();
-    }//GEN-LAST:event_atualizarRotaActionPerformed
+    private void excluirRotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirRotaActionPerformed
+        // Obtém a linha selecionada na tabela
+        int selectedRow = tableRotas.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione uma rota para excluir.");
+            return;
+        }
+
+        // Obtém os valores da linha selecionada para identificar a rota
+        String origem = tableRotas.getValueAt(selectedRow, 0).toString();
+        String destino = tableRotas.getValueAt(selectedRow, 1).toString();
+        String dataPartida = tableRotas.getValueAt(selectedRow, 2).toString();
+        String horasPartida = tableRotas.getValueAt(selectedRow, 3).toString();
+        String onibus = tableRotas.getValueAt(selectedRow, 4).toString();
+
+        int confirm = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir esta rota?", "Confirmar Exclusão", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
+                // Query para excluir a rota
+                String sql = "DELETE FROM viagens WHERE origem = ? AND destino = ? AND data_de_partida = ? AND horas_da_partida = ? AND onibus = ?";
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.setString(1, origem);
+                    pstmt.setString(2, destino);
+                    pstmt.setString(3, dataPartida);
+                    pstmt.setString(4, horasPartida);
+                    pstmt.setString(5, onibus);
+                    pstmt.executeUpdate();
+                }
+
+                // Remove a linha da tabela
+                DefaultTableModel model = (DefaultTableModel) tableRotas.getModel();
+                model.removeRow(selectedRow);
+
+                JOptionPane.showMessageDialog(this, "Rota excluída com sucesso.");
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Erro ao excluir a rota: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_excluirRotaActionPerformed
+
+    private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_buttonVoltarActionPerformed
     private void carregarDadosTabela() {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
             String sql = "SELECT origem, destino, data_de_partida, horas_da_partida, onibus, preco FROM viagens";
@@ -403,45 +452,6 @@ public class telaRota extends javax.swing.JFrame {
         }
     }
     
-    private int getLinhaSelecionada() {
-        return tableRotas.getSelectedRow();
-    }
-    
-    private void excluirDados() {
-        int linhaSelecionada = getLinhaSelecionada();
-        if (linhaSelecionada == -1) {
-            JOptionPane.showMessageDialog(this, "Nenhuma linha selecionada.", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        int resposta = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir esta rota?", "Confirmação", JOptionPane.YES_NO_OPTION);
-        if (resposta != JOptionPane.YES_OPTION) {
-            return;
-        }
-
-        DefaultTableModel model = (DefaultTableModel) tableRotas.getModel();
-        int idRota = Integer.parseInt((String) model.getValueAt(linhaSelecionada, 0));
-
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String sql = "DELETE FROM viagens WHERE id = ?";
-
-            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                pstmt.setInt(1, idRota);
-
-                int rowsAffected = pstmt.executeUpdate();
-                if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(this, "Dados excluídos com sucesso.");
-                    carregarDadosTabela();
-                } else {
-                    JOptionPane.showMessageDialog(this, "Nenhum dado foi excluído.", "Erro", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Erro ao excluir dados: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    
-     
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -462,10 +472,11 @@ public class telaRota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton atualizarRota;
     private javax.swing.JButton atualizarRotas;
+    private javax.swing.JButton buttonVoltar;
     private javax.swing.JButton cadastrarRota;
     private javax.swing.JTextField dataPartida;
+    private javax.swing.JButton excluirRota;
     private javax.swing.JTextField horaPartida;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
