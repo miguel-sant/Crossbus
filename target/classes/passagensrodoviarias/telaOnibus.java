@@ -29,16 +29,12 @@ public class telaOnibus extends javax.swing.JFrame {
     
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "password";
     
     public telaOnibus() {
         initComponents();
        
-<<<<<<< HEAD
-         carregarDadosTabela();
-=======
         carregarDadosTabela();
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
         setTitle("INFORMAÇÕES DOS ÔNIBUS");
         setSize(1280, 860);
         setLocationRelativeTo(null);
