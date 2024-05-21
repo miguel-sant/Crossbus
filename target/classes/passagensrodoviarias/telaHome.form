@@ -84,7 +84,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Sair"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
+              <Color id="Cursor Padr&#xe3;o"/>
             </Property>
           </Properties>
           <Events>
@@ -162,14 +162,10 @@
             <Component class="javax.swing.JLabel" name="manterVeiculos">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-<<<<<<< HEAD
-                  <Image iconType="2" name="C:\Users\gabri\OneDrive\Documentos\PassagensRodoviarias\src\main\java\imagens\bus-stop.png"/>
-=======
                   <Image iconType="3" name="/imagens/bus-stop.png"/>
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
               </Properties>
               <Events>
@@ -177,16 +173,6 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-<<<<<<< HEAD
-                  <AbsoluteConstraints x="60" y="30" width="120" height="100"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\gabri\OneDrive\Documentos\PassagensRodoviarias\src\main\java\imagens\ponteiro-de-parada-de-onibus(1).png"/>
-=======
                   <AbsoluteConstraints x="50" y="30" width="120" height="100"/>
                 </Constraint>
               </Constraints>
@@ -195,10 +181,9 @@
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens/ponteiro-de-parada-de-onibus(1).png"/>
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -207,20 +192,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-<<<<<<< HEAD
-            <Component class="javax.swing.JLabel" name="jLabel8">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\gabri\OneDrive\Documentos\PassagensRodoviarias\src\main\java\imagens\grafico-de-crescimento.png"/>
-=======
             <Component class="javax.swing.JLabel" name="faturamento">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens/grafico-de-crescimento.png"/>
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -229,20 +207,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-<<<<<<< HEAD
-            <Component class="javax.swing.JLabel" name="jLabel18">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\gabri\OneDrive\Documentos\PassagensRodoviarias\src\main\java\imagens\forma-de-pagamento(1).png"/>
-=======
             <Component class="javax.swing.JLabel" name="passagens">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens/forma-de-pagamento(1).png"/>
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -251,8 +222,6 @@
                 </Constraint>
               </Constraints>
             </Component>
-<<<<<<< HEAD
-=======
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CIDADES"/>
@@ -269,7 +238,7 @@
                   <Image iconType="3" name="/imagens/cityscape.png"/>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
               </Properties>
               <Events>
@@ -281,7 +250,6 @@
                 </Constraint>
               </Constraints>
             </Component>
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
           </SubComponents>
         </Container>
       </SubComponents>
