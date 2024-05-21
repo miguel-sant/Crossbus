@@ -17,7 +17,7 @@ public class BancoDeDados {
      // Configurações de conexão com o banco de dados
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USUARIO = "root";
-    private static final String SENHA = "";
+    private static final String SENHA = "SetRootPasswordHere";
 
     public static boolean inserirDadosNoBanco(String login, String senha, String nome, String email) {
         // Define a flag para indicar se o cadastro foi bem-sucedido
