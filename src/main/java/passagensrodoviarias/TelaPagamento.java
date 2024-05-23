@@ -31,7 +31,7 @@ public class TelaPagamento extends javax.swing.JFrame {
         setSize(720, 560);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        ((AbstractDocument) jTextField1.getDocument()).setDocumentFilter(new NumberOnlyFilter(16));
+        ((AbstractDocument) campoCartao.getDocument()).setDocumentFilter(new NumberOnlyFilter(16));
 
     }
     class NumberOnlyFilter extends DocumentFilter {
@@ -88,110 +88,113 @@ public class TelaPagamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        btnAcessar = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        logoPagamento = new javax.swing.JLabel();
+        pagamento = new javax.swing.JLabel();
+        logoVisa = new javax.swing.JLabel();
+        logoMaster = new javax.swing.JLabel();
+        Cartao = new javax.swing.JLabel();
+        campoCartao = new javax.swing.JTextField();
+        proprietario = new javax.swing.JLabel();
+        campoProprietario = new javax.swing.JTextField();
+        mes = new javax.swing.JLabel();
+        ano = new javax.swing.JLabel();
+        campoMes = new javax.swing.JTextField();
+        campoAno = new javax.swing.JTextField();
+        cvc = new javax.swing.JLabel();
+        campoCVC = new javax.swing.JTextField();
+        btSalvar = new javax.swing.JButton();
+        tituloTela = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/card.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
+        logoPagamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/credit-card.png"))); // NOI18N
+        getContentPane().add(logoPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/mastercard.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+        pagamento.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
+        pagamento.setForeground(new java.awt.Color(102, 102, 102));
+        pagamento.setText("Pagamento");
+        getContentPane().add(pagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 124, -1, 30));
 
-        jLabel3.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("Pagamento");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 124, -1, 30));
+        logoVisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/card.png"))); // NOI18N
+        getContentPane().add(logoVisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setText("Número do cartão");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
+        logoMaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/mastercard.png"))); // NOI18N
+        getContentPane().add(logoMaster, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        Cartao.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
+        Cartao.setForeground(new java.awt.Color(102, 102, 102));
+        Cartao.setText("Número do cartão");
+        getContentPane().add(Cartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
+
+        campoCartao.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        campoCartao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                campoCartaoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 239, -1));
+        getContentPane().add(campoCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 239, -1));
 
-        jLabel5.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setText("Nome do proprietário do cartão");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+        proprietario.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
+        proprietario.setForeground(new java.awt.Color(102, 102, 102));
+        proprietario.setText("Nome do proprietário do cartão");
+        getContentPane().add(proprietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
-        jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        campoProprietario.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        campoProprietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                campoProprietarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 239, -1));
+        getContentPane().add(campoProprietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 239, -1));
 
-        jLabel6.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Mês");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 270, 60, -1));
+        mes.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
+        mes.setForeground(new java.awt.Color(102, 102, 102));
+        mes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mes.setText("Mês");
+        getContentPane().add(mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 270, 60, -1));
 
-        jLabel7.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Ano");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 60, -1));
+        ano.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
+        ano.setForeground(new java.awt.Color(102, 102, 102));
+        ano.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ano.setText("Ano");
+        getContentPane().add(ano, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 60, -1));
 
-        jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 60, -1));
+        campoMes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        getContentPane().add(campoMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 60, -1));
 
-        jTextField4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 60, -1));
+        campoAno.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        getContentPane().add(campoAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 60, -1));
 
-        jLabel8.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("CVC");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 60, 20));
+        cvc.setFont(new java.awt.Font("Jamrul", 0, 15)); // NOI18N
+        cvc.setForeground(new java.awt.Color(102, 102, 102));
+        cvc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cvc.setText("CVC");
+        getContentPane().add(cvc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 60, 20));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/credit-card.png"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, -1));
+        campoCVC.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        getContentPane().add(campoCVC, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, 60, 30));
 
-        btnAcessar.setBackground(new java.awt.Color(102, 102, 255));
-        btnAcessar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAcessar.setText("Salvar");
-        btnAcessar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAcessar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btSalvar.setBackground(new java.awt.Color(102, 102, 255));
+        btSalvar.setForeground(new java.awt.Color(255, 255, 255));
+        btSalvar.setText("Salvar");
+        btSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAcessarMouseClicked(evt);
+                btSalvarMouseClicked(evt);
             }
         });
-        btnAcessar.addActionListener(new java.awt.event.ActionListener() {
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcessarActionPerformed(evt);
+                btSalvarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAcessar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 170, 40));
+        getContentPane().add(btSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 170, 40));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        tituloTela.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel10.setFont(new java.awt.Font("Liberation Serif", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -199,54 +202,51 @@ public class TelaPagamento extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/back.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout tituloTelaLayout = new javax.swing.GroupLayout(tituloTela);
+        tituloTela.setLayout(tituloTelaLayout);
+        tituloTelaLayout.setHorizontalGroup(
+            tituloTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tituloTelaLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
                 .addContainerGap(481, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        tituloTelaLayout.setVerticalGroup(
+            tituloTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tituloTelaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(tituloTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tituloTelaLayout.createSequentialGroup()
                         .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, -1));
-
-        jTextField6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, 60, 30));
+        getContentPane().add(tituloTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void campoCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCartaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_campoCartaoActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void campoProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoProprietarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_campoProprietarioActionPerformed
 
-    private void btnAcessarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAcessarMouseClicked
+    private void btSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAcessarMouseClicked
+    }//GEN-LAST:event_btSalvarMouseClicked
 
-    private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-      String numeroCartao = jTextField1.getText().replaceAll("[^0-9]", "");
-    String nomeProprietario = jTextField2.getText();
-    String mesExpiracao = jTextField3.getText();
-    String anoExpiracao = jTextField4.getText();
-    String cvv = jTextField6.getText();
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+      String numeroCartao = campoCartao.getText().replaceAll("[^0-9]", "");
+    String nomeProprietario = campoProprietario.getText();
+    String mesExpiracao = campoMes.getText();
+    String anoExpiracao = campoAno.getText();
+    String cvv = campoCVC.getText();
     int idUsuario = 1; // Defina o ID do usuário aqui
     try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/passagens", "root", "SetRootPasswordHere")) {
         String sql = "INSERT INTO dadoscartao (numero_cartao, nome_proprietario, mes_expiracao, ano_expiracao, cvv, id_usuario) VALUES (?, ?, ?, ?, ?, ?)";
@@ -268,9 +268,9 @@ public class TelaPagamento extends javax.swing.JFrame {
     } catch (SQLException e) {
         System.err.println("Erro ao conectar ao banco de dados: " + e.getMessage());
     }
-    }//GEN-LAST:event_btnAcessarActionPerformed
+    }//GEN-LAST:event_btSalvarActionPerformed
 private void formatarNumeroCartao() {
-    String texto = jTextField1.getText().replaceAll("[^0-9]", "");
+    String texto = campoCartao.getText().replaceAll("[^0-9]", "");
     StringBuilder formato = new StringBuilder();
     
     for (int i = 0; i < texto.length(); i++) {
@@ -280,7 +280,7 @@ private void formatarNumeroCartao() {
         formato.append(texto.charAt(i));
     }
     
-    jLabel4.setText(formato.toString());
+    Cartao.setText(formato.toString());
 }
     /**
      * @param args the command line arguments
@@ -318,23 +318,23 @@ private void formatarNumeroCartao() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAcessar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Cartao;
+    private javax.swing.JLabel ano;
+    private javax.swing.JButton btSalvar;
+    private javax.swing.JTextField campoAno;
+    private javax.swing.JTextField campoCVC;
+    private javax.swing.JTextField campoCartao;
+    private javax.swing.JTextField campoMes;
+    private javax.swing.JTextField campoProprietario;
+    private javax.swing.JLabel cvc;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel logoMaster;
+    private javax.swing.JLabel logoPagamento;
+    private javax.swing.JLabel logoVisa;
+    private javax.swing.JLabel mes;
+    private javax.swing.JLabel pagamento;
+    private javax.swing.JLabel proprietario;
+    private javax.swing.JPanel tituloTela;
     // End of variables declaration//GEN-END:variables
 }

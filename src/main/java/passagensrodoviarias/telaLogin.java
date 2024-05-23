@@ -49,8 +49,8 @@ public class telaLogin extends javax.swing.JFrame {
         
 // Adicione outros componentes ao roundedPanel conforme necessário
 // Exemplo: roundedPanel.add(new JLabel("Conteúdo do painel"));
-        jPanel1.setLayout(new BorderLayout());
-        jPanel1.add(roundedPanel, BorderLayout.CENTER);
+        painelForm.setLayout(new BorderLayout());
+        painelForm.add(roundedPanel, BorderLayout.CENTER);
 
 
     }
@@ -93,10 +93,11 @@ public class telaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        tituloEmpresa = new javax.swing.JLabel();
+        telaLogin = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        painelForm = new javax.swing.JPanel();
         btnAcessar = new javax.swing.JButton();
         email = new javax.swing.JTextField();
         senha = new javax.swing.JPasswordField();
@@ -105,27 +106,32 @@ public class telaLogin extends javax.swing.JFrame {
         esqueceuSenha = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         newCadastro = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        iconTwitter = new javax.swing.JLabel();
+        iconYoutube = new javax.swing.JLabel();
+        iconInstagram = new javax.swing.JLabel();
+        iconFacebook = new javax.swing.JLabel();
+        iconLinkedin = new javax.swing.JLabel();
+        imagemBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CROSSBUS");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        tituloEmpresa.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
+        tituloEmpresa.setForeground(new java.awt.Color(255, 255, 255));
+        tituloEmpresa.setText("CROSSBUS");
+        getContentPane().add(tituloEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+
+        telaLogin.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
+        telaLogin.setForeground(new java.awt.Color(255, 255, 255));
+        telaLogin.setText("Login");
+        getContentPane().add(telaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 40, -1, -1));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 1183, -1, -1));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 952, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setDoubleBuffered(false);
-        jPanel1.setOpaque(false);
+        painelForm.setBackground(new java.awt.Color(0, 0, 255));
+        painelForm.setForeground(new java.awt.Color(255, 255, 255));
+        painelForm.setDoubleBuffered(false);
+        painelForm.setOpaque(false);
 
         btnAcessar.setBackground(new java.awt.Color(102, 102, 255));
         btnAcessar.setForeground(new java.awt.Color(255, 255, 255));
@@ -187,36 +193,36 @@ public class telaLogin extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout painelFormLayout = new javax.swing.GroupLayout(painelForm);
+        painelForm.setLayout(painelFormLayout);
+        painelFormLayout.setHorizontalGroup(
+            painelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelFormLayout.createSequentialGroup()
                 .addContainerGap(91, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(painelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFormLayout.createSequentialGroup()
+                        .addGroup(painelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(79, 79, 79))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFormLayout.createSequentialGroup()
                         .addComponent(esqueceuSenha)
                         .addGap(142, 142, 142))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFormLayout.createSequentialGroup()
                         .addComponent(btnAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(111, 111, 111))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFormLayout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(95, 95, 95))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFormLayout.createSequentialGroup()
                         .addComponent(newCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(114, 114, 114))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        painelFormLayout.setVerticalGroup(
+            painelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFormLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -236,30 +242,30 @@ public class telaLogin extends javax.swing.JFrame {
                 .addGap(49, 49, 49))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 380, 370));
+        getContentPane().add(painelForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 380, 370));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/twitter.png"))); // NOI18N
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 720, -1, -1));
+        iconTwitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/twitter.png"))); // NOI18N
+        iconTwitter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(iconTwitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 720, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/youtube.png"))); // NOI18N
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 720, -1, -1));
+        iconYoutube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/youtube.png"))); // NOI18N
+        iconYoutube.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(iconYoutube, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 720, -1, -1));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/instagram.png"))); // NOI18N
-        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 720, -1, -1));
+        iconInstagram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/instagram.png"))); // NOI18N
+        iconInstagram.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(iconInstagram, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 720, -1, -1));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/facebook.png"))); // NOI18N
-        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 720, -1, -1));
+        iconFacebook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/facebook.png"))); // NOI18N
+        iconFacebook.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(iconFacebook, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 720, -1, -1));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/linkedin.png"))); // NOI18N
-        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 720, -1, -1));
+        iconLinkedin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/linkedin.png"))); // NOI18N
+        iconLinkedin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(iconLinkedin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 720, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background-cadastro-home.jpg"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -100, -1, 1050));
+        imagemBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background-cadastro-home.jpg"))); // NOI18N
+        getContentPane().add(imagemBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -100, -1, 1050));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -430,20 +436,21 @@ public class telaLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnAcessar;
     private javax.swing.JTextField email;
     private javax.swing.JLabel esqueceuSenha;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel iconFacebook;
+    private javax.swing.JLabel iconInstagram;
+    private javax.swing.JLabel iconLinkedin;
+    private javax.swing.JLabel iconTwitter;
+    private javax.swing.JLabel iconYoutube;
+    private javax.swing.JLabel imagemBackground;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel newCadastro;
+    private javax.swing.JPanel painelForm;
     private javax.swing.JPasswordField senha;
+    private javax.swing.JLabel telaLogin;
+    private javax.swing.JLabel tituloEmpresa;
     // End of variables declaration//GEN-END:variables
 }

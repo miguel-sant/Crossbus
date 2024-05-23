@@ -29,104 +29,104 @@ public class telaHome extends javax.swing.JFrame {
     private void initComponents() {
 
         nomeDoUsuario = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        Logout = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        manterVeiculos = new javax.swing.JLabel();
-        manterViagens = new javax.swing.JLabel();
+        tituloTela = new javax.swing.JLabel();
+        painel = new javax.swing.JPanel();
+        tituloEmpresa = new javax.swing.JLabel();
+        btSair = new javax.swing.JButton();
+        painelInteracao = new javax.swing.JPanel();
+        iconVeiculos = new javax.swing.JLabel();
+        veiculos = new javax.swing.JLabel();
+        iconViagens = new javax.swing.JLabel();
+        viagens = new javax.swing.JLabel();
+        iconPassagens = new javax.swing.JLabel();
+        passagensVendidas = new javax.swing.JLabel();
+        iconFaturamento = new javax.swing.JLabel();
         faturamento = new javax.swing.JLabel();
-        passagens = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        manterCidade = new javax.swing.JLabel();
+        iconCidades = new javax.swing.JLabel();
+        cidades = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(nomeDoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 170, 50));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Black", 0, 64)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("MENU");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 30, -1, -1));
+        tituloTela.setFont(new java.awt.Font("Segoe UI Black", 0, 64)); // NOI18N
+        tituloTela.setForeground(new java.awt.Color(255, 255, 255));
+        tituloTela.setText("MENU");
+        getContentPane().add(tituloTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 30, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(51, 0, 204));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        painel.setBackground(new java.awt.Color(51, 0, 204));
+        painel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CROSSBUS");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        tituloEmpresa.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
+        tituloEmpresa.setForeground(new java.awt.Color(255, 255, 255));
+        tituloEmpresa.setText("CROSSBUS");
+        painel.add(tituloEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        Logout.setText("Sair");
-        Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Logout.addActionListener(new java.awt.event.ActionListener() {
+        btSair.setText("Sair");
+        btSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LogoutActionPerformed(evt);
+                btSairActionPerformed(evt);
             }
         });
-        jPanel2.add(Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 780, 150, 50));
+        painel.add(btSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 780, 150, 50));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.magenta, java.awt.Color.magenta, java.awt.Color.magenta, java.awt.Color.magenta));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        painelInteracao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.magenta, java.awt.Color.magenta, java.awt.Color.magenta, java.awt.Color.magenta));
+        painelInteracao.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("VEICULOS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
-
-        jLabel7.setText("VIAGENS");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, -1, -1));
-
-        jLabel10.setText("PASSAGENS VENDIDAS");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, 140, 20));
-
-        jLabel12.setText("FATURAMENTO");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, -1, -1));
-
-        manterVeiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bus-stop.png"))); // NOI18N
-        manterVeiculos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        manterVeiculos.addMouseListener(new java.awt.event.MouseAdapter() {
+        iconVeiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bus-stop.png"))); // NOI18N
+        iconVeiculos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        iconVeiculos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                manterVeiculosMouseClicked(evt);
+                iconVeiculosMouseClicked(evt);
             }
         });
-        jPanel1.add(manterVeiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 120, 100));
+        painelInteracao.add(iconVeiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 120, 110));
 
-        manterViagens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ponteiro-de-parada-de-onibus(1).png"))); // NOI18N
-        manterViagens.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(manterViagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
+        veiculos.setText("VEICULOS");
+        painelInteracao.add(veiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
 
-        faturamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/grafico-de-crescimento.png"))); // NOI18N
-        faturamento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(faturamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
+        iconViagens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ponteiro-de-parada-de-onibus(1).png"))); // NOI18N
+        iconViagens.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        painelInteracao.add(iconViagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
 
-        passagens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/forma-de-pagamento(1).png"))); // NOI18N
-        passagens.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(passagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 120, 100));
+        viagens.setText("VIAGENS");
+        painelInteracao.add(viagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, -1, -1));
 
-        jLabel3.setText("CIDADES");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
+        iconPassagens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/forma-de-pagamento(1).png"))); // NOI18N
+        iconPassagens.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        painelInteracao.add(iconPassagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 120, 100));
 
-        manterCidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cityscape.png"))); // NOI18N
-        manterCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        manterCidade.addMouseListener(new java.awt.event.MouseAdapter() {
+        passagensVendidas.setText("PASSAGENS VENDIDAS");
+        painelInteracao.add(passagensVendidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, 140, 20));
+
+        iconFaturamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/grafico-de-crescimento.png"))); // NOI18N
+        iconFaturamento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        painelInteracao.add(iconFaturamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
+
+        faturamento.setText("FATURAMENTO");
+        painelInteracao.add(faturamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, -1, -1));
+
+        iconCidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cityscape.png"))); // NOI18N
+        iconCidades.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        iconCidades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                manterCidadeMouseClicked(evt);
+                iconCidadesMouseClicked(evt);
             }
         });
-        jPanel1.add(manterCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 140, 130));
+        painelInteracao.add(iconCidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 140, 130));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 780, 470));
+        cidades.setText("CIDADES");
+        painelInteracao.add(cidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 860));
+        painel.add(painelInteracao, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 780, 470));
+
+        getContentPane().add(painel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 860));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         
         int resposta = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Confirmação de Logout", JOptionPane.YES_NO_OPTION);
         if (resposta == JOptionPane.YES_OPTION) {
@@ -136,17 +136,17 @@ public class telaHome extends javax.swing.JFrame {
             login.setLocationRelativeTo(null);
             login.setVisible(true);
         }
-    }//GEN-LAST:event_LogoutActionPerformed
+    }//GEN-LAST:event_btSairActionPerformed
 
-    private void manterVeiculosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manterVeiculosMouseClicked
+    private void iconVeiculosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconVeiculosMouseClicked
         telaOnibus telaOnibus = new telaOnibus();
         telaOnibus.setVisible(true);
-    }//GEN-LAST:event_manterVeiculosMouseClicked
+    }//GEN-LAST:event_iconVeiculosMouseClicked
 
-    private void manterCidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manterCidadeMouseClicked
+    private void iconCidadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconCidadesMouseClicked
         TelaCidade telaCidade = new TelaCidade();
         telaCidade.setVisible(true);
-    }//GEN-LAST:event_manterCidadeMouseClicked
+    }//GEN-LAST:event_iconCidadesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -184,21 +184,21 @@ public class telaHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Logout;
+    private javax.swing.JButton btSair;
+    private javax.swing.JLabel cidades;
     private javax.swing.JLabel faturamento;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel manterCidade;
-    private javax.swing.JLabel manterVeiculos;
-    private javax.swing.JLabel manterViagens;
+    private javax.swing.JLabel iconCidades;
+    private javax.swing.JLabel iconFaturamento;
+    private javax.swing.JLabel iconPassagens;
+    private javax.swing.JLabel iconVeiculos;
+    private javax.swing.JLabel iconViagens;
     private javax.swing.JLabel nomeDoUsuario;
-    private javax.swing.JLabel passagens;
+    private javax.swing.JPanel painel;
+    private javax.swing.JPanel painelInteracao;
+    private javax.swing.JLabel passagensVendidas;
+    private javax.swing.JLabel tituloEmpresa;
+    private javax.swing.JLabel tituloTela;
+    private javax.swing.JLabel veiculos;
+    private javax.swing.JLabel viagens;
     // End of variables declaration//GEN-END:variables
 }
