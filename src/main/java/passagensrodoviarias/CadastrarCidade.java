@@ -39,59 +39,59 @@ public class CadastrarCidade extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        nomeCidade = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        siglaCidade = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        ufCidade = new javax.swing.JTextField();
-        buttonCadastrar = new javax.swing.JButton();
+        painel = new javax.swing.JPanel();
+        cidade = new javax.swing.JLabel();
+        campoCidade = new javax.swing.JTextField();
+        sigla = new javax.swing.JLabel();
+        campoSigla = new javax.swing.JTextField();
+        uf = new javax.swing.JLabel();
+        campoUf = new javax.swing.JTextField();
+        btCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(51, 0, 204));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        painel.setBackground(new java.awt.Color(51, 0, 204));
+        painel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cidade");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
-        jPanel2.add(nomeCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 100, -1));
+        cidade.setBackground(new java.awt.Color(255, 255, 255));
+        cidade.setForeground(new java.awt.Color(255, 255, 255));
+        cidade.setText("Cidade");
+        painel.add(cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
+        painel.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 100, -1));
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Sigla");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
-        jPanel2.add(siglaCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 100, -1));
+        sigla.setForeground(new java.awt.Color(255, 255, 255));
+        sigla.setText("Sigla");
+        painel.add(sigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
+        painel.add(campoSigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 100, -1));
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("UF");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
-        jPanel2.add(ufCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 100, -1));
+        uf.setForeground(new java.awt.Color(255, 255, 255));
+        uf.setText("UF");
+        painel.add(uf, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+        painel.add(campoUf, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 100, -1));
 
-        buttonCadastrar.setText("Cadastrar");
-        buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        btCadastrar.setText("Cadastrar");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadastrarActionPerformed(evt);
+                btCadastrarActionPerformed(evt);
             }
         });
-        jPanel2.add(buttonCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+        painel.add(btCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+            .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+            .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
                                                 
         String url = "jdbc:mysql://localhost:3306/passagens";
         String user = "root";
@@ -102,9 +102,9 @@ public class CadastrarCidade extends javax.swing.JFrame {
 
             String query = "INSERT INTO cidades (nome_cidade, sigla_ibge, uf) VALUES (?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
-            statement.setString(1, nomeCidade.getText());
-            statement.setString(2, siglaCidade.getText());
-            statement.setString(3, ufCidade.getText());
+            statement.setString(1, campoCidade.getText());
+            statement.setString(2, campoSigla.getText());
+            statement.setString(3, campoUf.getText());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
@@ -116,7 +116,7 @@ public class CadastrarCidade extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar cidade: " + e.getMessage());
         }
     
-    }//GEN-LAST:event_buttonCadastrarActionPerformed
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,13 +154,13 @@ public class CadastrarCidade extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCadastrar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField nomeCidade;
-    private javax.swing.JTextField siglaCidade;
-    private javax.swing.JTextField ufCidade;
+    private javax.swing.JButton btCadastrar;
+    private javax.swing.JTextField campoCidade;
+    private javax.swing.JTextField campoSigla;
+    private javax.swing.JTextField campoUf;
+    private javax.swing.JLabel cidade;
+    private javax.swing.JPanel painel;
+    private javax.swing.JLabel sigla;
+    private javax.swing.JLabel uf;
     // End of variables declaration//GEN-END:variables
 }
