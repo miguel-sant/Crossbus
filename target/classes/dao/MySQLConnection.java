@@ -16,7 +16,7 @@ public class MySQLConnection {
     // Informações de conexão com o banco de dados
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USUARIO = "root";
-    private static final String SENHA = "";
+    private static final String SENHA = "SetRootPasswordHere";
 
     public static void main(String[] args) {
         // Objeto de conexão

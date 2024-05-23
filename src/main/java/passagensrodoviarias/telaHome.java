@@ -144,7 +144,8 @@ public class telaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_manterVeiculosMouseClicked
 
     private void manterCidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manterCidadeMouseClicked
-       
+        TelaCidade telaCidade = new TelaCidade();
+        telaCidade.setVisible(true);
     }//GEN-LAST:event_manterCidadeMouseClicked
 
     /**
