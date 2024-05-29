@@ -138,69 +138,112 @@ public class telaOnibus extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        searchNumero = new javax.swing.JTextField();
-        searchPlaca = new javax.swing.JTextField();
-        excluirVeiculo = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        tituloEmpresa = new javax.swing.JLabel();
+        tituloTela = new javax.swing.JLabel();
+        painel = new javax.swing.JPanel();
+        numero = new javax.swing.JLabel();
+        campoNumero = new javax.swing.JTextField();
+        placa = new javax.swing.JLabel();
+        campoPlaca = new javax.swing.JTextField();
+        motorista = new javax.swing.JLabel();
+        campoMotorista = new javax.swing.JTextField();
+        btConsultar = new javax.swing.JButton();
+        btAdicionar = new javax.swing.JButton();
+        btAtualizar = new javax.swing.JButton();
+        btExcluir = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
+        resultConsulta = new javax.swing.JScrollPane();
         tableVeiculos = new javax.swing.JTable();
-        buttonVoltar = new javax.swing.JButton();
-        adicionarOnibus = new javax.swing.JButton();
-        searchVeiculo = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        searchMotorista = new javax.swing.JTextField();
-        atualizarTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 0, 255));
         setMinimumSize(new java.awt.Dimension(1280, 860));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CROSSBUS");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        tituloEmpresa.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
+        tituloEmpresa.setForeground(new java.awt.Color(255, 255, 255));
+        tituloEmpresa.setText("CROSSBUS");
+        getContentPane().add(tituloEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(51, 0, 204));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tituloTela.setFont(new java.awt.Font("Segoe UI Black", 0, 64)); // NOI18N
+        tituloTela.setForeground(new java.awt.Color(255, 255, 255));
+        tituloTela.setText("Veículos");
+        getContentPane().add(tituloTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 30, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Placa");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, -1));
+        painel.setBackground(new java.awt.Color(51, 0, 204));
+        painel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        searchNumero.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        searchNumero.addActionListener(new java.awt.event.ActionListener() {
+        numero.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        numero.setForeground(new java.awt.Color(255, 255, 255));
+        numero.setText("Número");
+        painel.add(numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
+
+        campoNumero.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        campoNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchNumeroActionPerformed(evt);
+                campoNumeroActionPerformed(evt);
             }
         });
-        jPanel1.add(searchNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 120, -1));
+        painel.add(campoNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 120, -1));
 
-        searchPlaca.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        searchPlaca.addActionListener(new java.awt.event.ActionListener() {
+        placa.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        placa.setForeground(new java.awt.Color(255, 255, 255));
+        placa.setText("Placa");
+        painel.add(placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, -1));
+
+        campoPlaca.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        campoPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchPlacaActionPerformed(evt);
+                campoPlacaActionPerformed(evt);
             }
         });
-        jPanel1.add(searchPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 130, -1));
+        painel.add(campoPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 130, -1));
 
-        excluirVeiculo.setText("Excluir veículo");
-        excluirVeiculo.addActionListener(new java.awt.event.ActionListener() {
+        motorista.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        motorista.setForeground(new java.awt.Color(255, 255, 255));
+        motorista.setText("Motorista");
+        painel.add(motorista, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 240, -1, -1));
+        painel.add(campoMotorista, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 240, 40));
+
+        btConsultar.setText("Consultar");
+        btConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                excluirVeiculoActionPerformed(evt);
+                btConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(excluirVeiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 630, 110, 40));
+        painel.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 240, 110, 40));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Black", 0, 64)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Veículos");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 30, -1, -1));
+        btAdicionar.setText("Adicionar");
+        btAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarActionPerformed(evt);
+            }
+        });
+        painel.add(btAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 400, 110, 40));
+
+        btAtualizar.setText("Atualizar");
+        btAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAtualizarActionPerformed(evt);
+            }
+        });
+        painel.add(btAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 510, 110, 40));
+
+        btExcluir.setText("Excluir veículo");
+        btExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirActionPerformed(evt);
+            }
+        });
+        painel.add(btExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 630, 110, 40));
+
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+        painel.add(btVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 720, 110, 40));
 
         tableVeiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -220,83 +263,40 @@ public class telaOnibus extends javax.swing.JFrame {
         });
         tableVeiculos.setColumnSelectionAllowed(true);
         tableVeiculos.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tableVeiculos);
+        resultConsulta.setViewportView(tableVeiculos);
         tableVeiculos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 780, 480));
+        painel.add(resultConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 780, 480));
 
-        buttonVoltar.setText("Voltar");
-        buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonVoltarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(buttonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 750, 110, 40));
-
-        adicionarOnibus.setText("Adicionar");
-        adicionarOnibus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adicionarOnibusActionPerformed(evt);
-            }
-        });
-        jPanel1.add(adicionarOnibus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 400, 110, 40));
-
-        searchVeiculo.setText("Consultar");
-        searchVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchVeiculoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(searchVeiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 240, 110, 40));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Número");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Motorista");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 240, -1, -1));
-        jPanel1.add(searchMotorista, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 240, 40));
-
-        atualizarTable.setText("Atualizar");
-        atualizarTable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atualizarTableActionPerformed(evt);
-            }
-        });
-        jPanel1.add(atualizarTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 510, 110, 40));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 870));
+        getContentPane().add(painel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 870));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPlacaActionPerformed
+    private void campoPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPlacaActionPerformed
 
-    }//GEN-LAST:event_searchPlacaActionPerformed
+    }//GEN-LAST:event_campoPlacaActionPerformed
 
-    private void adicionarOnibusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarOnibusActionPerformed
+    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
         
         CadastrarVeiculos cadastrarVeiculos = new CadastrarVeiculos();
         cadastrarVeiculos.setVisible(true);
         
-    }//GEN-LAST:event_adicionarOnibusActionPerformed
+    }//GEN-LAST:event_btAdicionarActionPerformed
 
-    private void searchNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchNumeroActionPerformed
+    private void campoNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNumeroActionPerformed
        
-    }//GEN-LAST:event_searchNumeroActionPerformed
+    }//GEN-LAST:event_campoNumeroActionPerformed
 
-    private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose(); 
-    }//GEN-LAST:event_buttonVoltarActionPerformed
+    }//GEN-LAST:event_btVoltarActionPerformed
 
-    private void searchVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchVeiculoActionPerformed
+    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
 
-        String numero = searchNumero.getText().trim();
-        String placa = searchPlaca.getText().trim();
-        String motorista = searchMotorista.getText().trim();
+        String numero = campoNumero.getText().trim();
+        String placa = campoPlaca.getText().trim();
+        String motorista = campoMotorista.getText().trim();
 
         StringBuilder sqlBuilder = new StringBuilder();
         sqlBuilder.append("SELECT numero, placa, motorista, qtd_poltronas FROM veiculos WHERE 1=1");
@@ -334,15 +334,15 @@ public class telaOnibus extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Erro ao executar consulta: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_searchVeiculoActionPerformed
+    }//GEN-LAST:event_btConsultarActionPerformed
 
-    private void excluirVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirVeiculoActionPerformed
+    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
         excluirDados();
-    }//GEN-LAST:event_excluirVeiculoActionPerformed
+    }//GEN-LAST:event_btExcluirActionPerformed
 
-    private void atualizarTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarTableActionPerformed
+    private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
          atualizarTabelaVeiculos();
-    }//GEN-LAST:event_atualizarTableActionPerformed
+    }//GEN-LAST:event_btAtualizarActionPerformed
 
     private int getLinhaSelecionada() {
         return tableVeiculos.getSelectedRow();
@@ -423,22 +423,22 @@ public class telaOnibus extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton adicionarOnibus;
-    private javax.swing.JButton atualizarTable;
-    private javax.swing.JButton buttonVoltar;
-    private javax.swing.JButton excluirVeiculo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField searchMotorista;
-    private javax.swing.JTextField searchNumero;
-    private javax.swing.JTextField searchPlaca;
-    private javax.swing.JButton searchVeiculo;
+    private javax.swing.JButton btAdicionar;
+    private javax.swing.JButton btAtualizar;
+    private javax.swing.JButton btConsultar;
+    private javax.swing.JButton btExcluir;
+    private javax.swing.JButton btVoltar;
+    private javax.swing.JTextField campoMotorista;
+    private javax.swing.JTextField campoNumero;
+    private javax.swing.JTextField campoPlaca;
+    private javax.swing.JLabel motorista;
+    private javax.swing.JLabel numero;
+    private javax.swing.JPanel painel;
+    private javax.swing.JLabel placa;
+    private javax.swing.JScrollPane resultConsulta;
     private javax.swing.JTable tableVeiculos;
+    private javax.swing.JLabel tituloEmpresa;
+    private javax.swing.JLabel tituloTela;
     // End of variables declaration//GEN-END:variables
 
 }

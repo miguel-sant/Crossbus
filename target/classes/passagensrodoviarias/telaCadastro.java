@@ -4,7 +4,6 @@
  */
 package passagensrodoviarias;
 
-<<<<<<< HEAD
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -14,9 +13,6 @@ import java.awt.RenderingHints;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-=======
-import javax.swing.JOptionPane;
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
 
 /**
  *
@@ -29,7 +25,6 @@ public class telaCadastro extends javax.swing.JFrame {
      */
     public telaCadastro() {
         initComponents();
-<<<<<<< HEAD
         setSize(1280, 860);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -42,8 +37,8 @@ public class telaCadastro extends javax.swing.JFrame {
         
 // Adicione outros componentes ao roundedPanel conforme necessário
 // Exemplo: roundedPanel.add(new JLabel("Conteúdo do painel"));
-        formPanel.setLayout(new BorderLayout());
-        formPanel.add(roundedPanel, BorderLayout.CENTER);
+        painelFormulario.setLayout(new BorderLayout());
+        painelFormulario.add(roundedPanel, BorderLayout.CENTER);
     }
 public class RoundedPanel extends JPanel {
     private int radius;
@@ -70,10 +65,6 @@ public class RoundedPanel extends JPanel {
         graphics.drawRoundRect(0, 0, width - 1, height - 1, arcs.width, arcs.height);
     }
 }
-=======
-    }
-
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,270 +74,144 @@ public class RoundedPanel extends JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<<<<<<< HEAD
-        formPanel = new javax.swing.JPanel();
-        labelLogin = new javax.swing.JLabel();
-        labelSenha = new javax.swing.JLabel();
-        login = new javax.swing.JTextField();
-        labelConfirmSenha = new javax.swing.JLabel();
-        cadastrar = new javax.swing.JButton();
-        senha = new javax.swing.JPasswordField();
-        senha2 = new javax.swing.JPasswordField();
-        nome = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        labelEmail = new javax.swing.JLabel();
-        labelNome = new javax.swing.JLabel();
-        iconAnterior = new javax.swing.JLabel();
+        tituloEmpresa = new javax.swing.JLabel();
+        painelFormulario = new javax.swing.JPanel();
+        iconVoltar = new javax.swing.JLabel();
         iconBus = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        backgroundLabel = new javax.swing.JLabel();
+        cadastrar = new javax.swing.JLabel();
+        login = new javax.swing.JLabel();
+        campoLogin = new javax.swing.JTextField();
+        nome = new javax.swing.JLabel();
+        campoNome = new javax.swing.JTextField();
+        Email = new javax.swing.JLabel();
+        campoEmail = new javax.swing.JTextField();
+        senha = new javax.swing.JLabel();
+        campoSenha = new javax.swing.JPasswordField();
+        confirmarSenha = new javax.swing.JLabel();
+        campoConfirma = new javax.swing.JPasswordField();
+        btCadastrar = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        formPanel.setBackground(new java.awt.Color(0, 0, 255));
-        formPanel.setForeground(new java.awt.Color(255, 255, 255));
-        formPanel.setDoubleBuffered(false);
-        formPanel.setOpaque(false);
-        formPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tituloEmpresa.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
+        tituloEmpresa.setForeground(new java.awt.Color(255, 255, 255));
+        tituloEmpresa.setText("CROSSBUS");
+        getContentPane().add(tituloEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
-        labelLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        labelLogin.setForeground(new java.awt.Color(255, 255, 255));
-        labelLogin.setText("Login");
-        formPanel.add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+        painelFormulario.setBackground(new java.awt.Color(51, 51, 255));
+        painelFormulario.setForeground(new java.awt.Color(255, 255, 255));
+        painelFormulario.setToolTipText("");
+        painelFormulario.setDoubleBuffered(false);
+        painelFormulario.setOpaque(false);
+        painelFormulario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        labelSenha.setForeground(new java.awt.Color(255, 255, 255));
-        labelSenha.setText("Senha");
-        formPanel.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
-=======
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        login = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        nome = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        cadastrar = new javax.swing.JButton();
-        senha = new javax.swing.JPasswordField();
-        senha2 = new javax.swing.JPasswordField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("CROSSBUS");
-
-        jLabel2.setText("Login");
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
-
-        login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
-            }
-        });
-<<<<<<< HEAD
-        formPanel.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 220, -1));
-
-        labelConfirmSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        labelConfirmSenha.setForeground(new java.awt.Color(255, 255, 255));
-        labelConfirmSenha.setText("Confirmar Senha");
-        formPanel.add(labelConfirmSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
-
-        cadastrar.setBackground(new java.awt.Color(102, 102, 255));
-        cadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        cadastrar.setText("Cadastrar");
-        cadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarActionPerformed(evt);
-            }
-        });
-        formPanel.add(cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 130, 40));
-        formPanel.add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 220, -1));
-
-        senha2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senha2ActionPerformed(evt);
-            }
-        });
-        formPanel.add(senha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 220, -1));
-
-        nome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeActionPerformed(evt);
-            }
-        });
-        formPanel.add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 220, -1));
-=======
-
-        jLabel3.setText("Senha");
-
-        jLabel4.setText("Confirmar Senha");
-
-        jLabel5.setText("Nome completo");
-
-        jLabel6.setText("Email");
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
-
-        email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
-            }
-        });
-<<<<<<< HEAD
-        formPanel.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 220, -1));
-
-        labelEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        labelEmail.setForeground(new java.awt.Color(255, 255, 255));
-        labelEmail.setText("Email");
-        formPanel.add(labelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
-
-        labelNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        labelNome.setForeground(new java.awt.Color(255, 255, 255));
-        labelNome.setText("Nome completo");
-        formPanel.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
-
-        iconAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/anterior.png"))); // NOI18N
-        iconAnterior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        iconAnterior.addMouseListener(new java.awt.event.MouseAdapter() {
+        iconVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/anterior.png"))); // NOI18N
+        iconVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iconVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                iconAnteriorMouseClicked(evt);
+                iconVoltarMouseClicked(evt);
             }
         });
-        formPanel.add(iconAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 60));
+        painelFormulario.add(iconVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 60));
 
         iconBus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bus.png"))); // NOI18N
-        formPanel.add(iconBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
+        painelFormulario.add(iconBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("CADASTRAR");
-        formPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
+        cadastrar.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
+        cadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        cadastrar.setText("CADASTRAR");
+        painelFormulario.add(cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
 
-        getContentPane().add(formPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 540, 530));
+        login.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        login.setForeground(new java.awt.Color(255, 255, 255));
+        login.setText("Login");
+        painelFormulario.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CROSSBUS");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
-
-        backgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background-cadastro-home.jpg"))); // NOI18N
-        getContentPane().add(backgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -100, -1, 1050));
-=======
-
-        cadastrar.setText("Cadastrar");
-        cadastrar.addActionListener(new java.awt.event.ActionListener() {
+        campoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarActionPerformed(evt);
+                campoLoginActionPerformed(evt);
             }
         });
+        painelFormulario.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 220, -1));
 
-        senha2.addActionListener(new java.awt.event.ActionListener() {
+        nome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nome.setForeground(new java.awt.Color(255, 255, 255));
+        nome.setText("Nome completo");
+        painelFormulario.add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+
+        campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senha2ActionPerformed(evt);
+                campoNomeActionPerformed(evt);
             }
         });
+        painelFormulario.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 220, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                    .addComponent(senha)
-                    .addComponent(senha2))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel5)
-                        .addComponent(nome, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addComponent(email))
-                    .addComponent(cadastrar))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                        .addComponent(cadastrar)
-                        .addGap(25, 25, 25))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(senha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        Email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Email.setForeground(new java.awt.Color(255, 255, 255));
+        Email.setText("Email");
+        painelFormulario.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(89, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
+        campoEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEmailActionPerformed(evt);
+            }
+        });
+        painelFormulario.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 220, -1));
+
+        senha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        senha.setForeground(new java.awt.Color(255, 255, 255));
+        senha.setText("Senha");
+        painelFormulario.add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+        painelFormulario.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 220, -1));
+
+        confirmarSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        confirmarSenha.setForeground(new java.awt.Color(255, 255, 255));
+        confirmarSenha.setText("Confirmar Senha");
+        painelFormulario.add(confirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+
+        campoConfirma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoConfirmaActionPerformed(evt);
+            }
+        });
+        painelFormulario.add(campoConfirma, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 220, -1));
+
+        btCadastrar.setBackground(new java.awt.Color(102, 102, 255));
+        btCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        btCadastrar.setText("Cadastrar");
+        btCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastrarActionPerformed(evt);
+            }
+        });
+        painelFormulario.add(btCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 130, 40));
+
+        getContentPane().add(painelFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 540, 530));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background-cadastro-home.jpg"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -100, -1, 1050));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+    private void campoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_loginActionPerformed
+    }//GEN-LAST:event_campoLoginActionPerformed
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_campoEmailActionPerformed
 
-    private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
        // Obtém os valores dos campos
-        String loginText = login.getText();
-        char[] senhaArray = senha.getPassword();
-        char[] senha2Array = senha2.getPassword();
-        String nomeText = nome.getText();
-        String emailText = email.getText();
+        String loginText = campoLogin.getText();
+        char[] senhaArray = campoSenha.getPassword();
+        char[] senha2Array = campoConfirma.getPassword();
+        String nomeText = campoNome.getText();
+        String emailText = campoEmail.getText();
         String senha = new String(senhaArray);
         String senha2 = new String(senha2Array);
 
@@ -366,27 +231,24 @@ public class RoundedPanel extends JPanel {
         } else {
             JOptionPane.showMessageDialog(this, "As senhas não coincidem. Por favor, verifique e tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_cadastrarActionPerformed
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
-    private void senha2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senha2ActionPerformed
+    private void campoConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoConfirmaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_senha2ActionPerformed
+    }//GEN-LAST:event_campoConfirmaActionPerformed
 
-<<<<<<< HEAD
-    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
+    private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nomeActionPerformed
+    }//GEN-LAST:event_campoNomeActionPerformed
 
-    private void iconAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconAnteriorMouseClicked
+    private void iconVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconVoltarMouseClicked
         // TODO add your handling code here:
         telaLogin telaLogin = new telaLogin();
                 telaLogin.setVisible(true);
                 setVisible(false);
                 dispose();
-    }//GEN-LAST:event_iconAnteriorMouseClicked
+    }//GEN-LAST:event_iconVoltarMouseClicked
 
-=======
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
     /**
      * @param args the command line arguments
      */
@@ -423,34 +285,22 @@ public class RoundedPanel extends JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
-    private javax.swing.JLabel backgroundLabel;
-    private javax.swing.JButton cadastrar;
-    private javax.swing.JTextField email;
-    private javax.swing.JPanel formPanel;
-    private javax.swing.JLabel iconAnterior;
+    private javax.swing.JLabel Email;
+    private javax.swing.JLabel background;
+    private javax.swing.JButton btCadastrar;
+    private javax.swing.JLabel cadastrar;
+    private javax.swing.JPasswordField campoConfirma;
+    private javax.swing.JTextField campoEmail;
+    private javax.swing.JTextField campoLogin;
+    private javax.swing.JTextField campoNome;
+    private javax.swing.JPasswordField campoSenha;
+    private javax.swing.JLabel confirmarSenha;
     private javax.swing.JLabel iconBus;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel labelConfirmSenha;
-    private javax.swing.JLabel labelEmail;
-    private javax.swing.JLabel labelLogin;
-    private javax.swing.JLabel labelNome;
-    private javax.swing.JLabel labelSenha;
-=======
-    private javax.swing.JButton cadastrar;
-    private javax.swing.JTextField email;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
->>>>>>> 01cef991c457d5f8e495dafc44724489271736a7
-    private javax.swing.JTextField login;
-    private javax.swing.JTextField nome;
-    private javax.swing.JPasswordField senha;
-    private javax.swing.JPasswordField senha2;
+    private javax.swing.JLabel iconVoltar;
+    private javax.swing.JLabel login;
+    private javax.swing.JLabel nome;
+    private javax.swing.JPanel painelFormulario;
+    private javax.swing.JLabel senha;
+    private javax.swing.JLabel tituloEmpresa;
     // End of variables declaration//GEN-END:variables
 }

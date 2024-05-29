@@ -96,37 +96,109 @@ public class TelaCidade extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        painel = new javax.swing.JPanel();
+        tituloEmpresa = new javax.swing.JLabel();
+        tituloTela = new javax.swing.JLabel();
+        cidade = new javax.swing.JLabel();
+        campoCidade = new javax.swing.JTextField();
+        sigla = new javax.swing.JLabel();
+        campoSigla = new javax.swing.JTextField();
+        uf = new javax.swing.JLabel();
+        campoUf = new javax.swing.JTextField();
+        btConsultar = new javax.swing.JButton();
+        btAdicionar = new javax.swing.JButton();
+        btAtualizar = new javax.swing.JButton();
+        btExcluir = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
+        tabelaConsultas = new javax.swing.JScrollPane();
         tableCidades = new javax.swing.JTable();
-        searchCidade = new javax.swing.JButton();
-        adicionarCidade = new javax.swing.JButton();
-        atualizarCidade = new javax.swing.JButton();
-        excluirCidade = new javax.swing.JButton();
-        buttonVoltar = new javax.swing.JButton();
-        searchNome = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        searchSigla = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        searchUf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 0, 204));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        painel.setBackground(new java.awt.Color(51, 0, 204));
+        painel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CROSSBUS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        tituloEmpresa.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
+        tituloEmpresa.setForeground(new java.awt.Color(255, 255, 255));
+        tituloEmpresa.setText("CROSSBUS");
+        painel.add(tituloEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Black", 0, 64)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("CIDADES");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 30, -1, -1));
+        tituloTela.setFont(new java.awt.Font("Segoe UI Black", 0, 64)); // NOI18N
+        tituloTela.setForeground(new java.awt.Color(255, 255, 255));
+        tituloTela.setText("CIDADES");
+        painel.add(tituloTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 30, -1, -1));
+
+        cidade.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        cidade.setForeground(new java.awt.Color(255, 255, 255));
+        cidade.setText("Cidade");
+        painel.add(cidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
+
+        campoCidade.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        campoCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoCidadeActionPerformed(evt);
+            }
+        });
+        painel.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 270, -1));
+
+        sigla.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        sigla.setForeground(new java.awt.Color(255, 255, 255));
+        sigla.setText("Sigla");
+        painel.add(sigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, -1, -1));
+
+        campoSigla.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        campoSigla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoSiglaActionPerformed(evt);
+            }
+        });
+        painel.add(campoSigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 130, -1));
+
+        uf.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        uf.setForeground(new java.awt.Color(255, 255, 255));
+        uf.setText("UF");
+        painel.add(uf, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 240, -1, -1));
+        painel.add(campoUf, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 240, 70, 40));
+
+        btConsultar.setText("Consultar");
+        btConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsultarActionPerformed(evt);
+            }
+        });
+        painel.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 240, 110, 40));
+
+        btAdicionar.setText("Adicionar");
+        btAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarActionPerformed(evt);
+            }
+        });
+        painel.add(btAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 400, 110, 40));
+
+        btAtualizar.setText("Atualizar");
+        btAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAtualizarActionPerformed(evt);
+            }
+        });
+        painel.add(btAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 510, 110, 40));
+
+        btExcluir.setText("Excluir cidade");
+        btExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirActionPerformed(evt);
+            }
+        });
+        painel.add(btExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 630, 110, 40));
+
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+        painel.add(btVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 750, 110, 40));
 
         tableCidades.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,101 +218,29 @@ public class TelaCidade extends javax.swing.JFrame {
         });
         tableCidades.setColumnSelectionAllowed(true);
         tableCidades.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tableCidades);
+        tabelaConsultas.setViewportView(tableCidades);
         tableCidades.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 780, 480));
-
-        searchCidade.setText("Consultar");
-        searchCidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchCidadeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(searchCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 240, 110, 40));
-
-        adicionarCidade.setText("Adicionar");
-        adicionarCidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adicionarCidadeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(adicionarCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 400, 110, 40));
-
-        atualizarCidade.setText("Atualizar");
-        atualizarCidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atualizarCidadeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(atualizarCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 510, 110, 40));
-
-        excluirCidade.setText("Excluir cidade");
-        excluirCidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                excluirCidadeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(excluirCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 630, 110, 40));
-
-        buttonVoltar.setText("Voltar");
-        buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonVoltarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(buttonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 750, 110, 40));
-
-        searchNome.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        searchNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchNomeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(searchNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 270, -1));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Cidade");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Sigla");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, -1, -1));
-
-        searchSigla.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        searchSigla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchSiglaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(searchSigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 130, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("UF");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 240, -1, -1));
-        jPanel1.add(searchUf, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 240, 70, 40));
+        painel.add(tabelaConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 780, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCidadeActionPerformed
-        String cidade = searchNome.getText().trim();
-        String sigla = searchSigla.getText().trim();
-        String uf = searchUf.getText().trim();
+    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
+        String cidade = campoCidade.getText().trim();
+        String sigla = campoSigla.getText().trim();
+        String uf = campoUf.getText().trim();
 
         StringBuilder sqlBuilder = new StringBuilder();
         sqlBuilder.append("SELECT nome_cidade, sigla_ibge, uf FROM cidades WHERE 1=1");
@@ -279,34 +279,34 @@ public class TelaCidade extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro ao executar consulta: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
    
-    }//GEN-LAST:event_searchCidadeActionPerformed
+    }//GEN-LAST:event_btConsultarActionPerformed
 
-    private void adicionarCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarCidadeActionPerformed
+    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
 
         CadastrarCidade cadastrarCidade = new CadastrarCidade();
         cadastrarCidade.setVisible(true);
 
-    }//GEN-LAST:event_adicionarCidadeActionPerformed
+    }//GEN-LAST:event_btAdicionarActionPerformed
 
-    private void atualizarCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarCidadeActionPerformed
+    private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
       atualizarTabelaCidade();
-    }//GEN-LAST:event_atualizarCidadeActionPerformed
+    }//GEN-LAST:event_btAtualizarActionPerformed
 
-    private void excluirCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirCidadeActionPerformed
+    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
         excluirDados();
-    }//GEN-LAST:event_excluirCidadeActionPerformed
+    }//GEN-LAST:event_btExcluirActionPerformed
 
-    private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose();
-    }//GEN-LAST:event_buttonVoltarActionPerformed
+    }//GEN-LAST:event_btVoltarActionPerformed
 
-    private void searchNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchNomeActionPerformed
+    private void campoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCidadeActionPerformed
 
-    }//GEN-LAST:event_searchNomeActionPerformed
+    }//GEN-LAST:event_campoCidadeActionPerformed
 
-    private void searchSiglaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchSiglaActionPerformed
+    private void campoSiglaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSiglaActionPerformed
 
-    }//GEN-LAST:event_searchSiglaActionPerformed
+    }//GEN-LAST:event_campoSiglaActionPerformed
 
     private int getLinhaSelecionada() {
         return tableCidades.getSelectedRow();
@@ -382,21 +382,21 @@ public class TelaCidade extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton adicionarCidade;
-    private javax.swing.JButton atualizarCidade;
-    private javax.swing.JButton buttonVoltar;
-    private javax.swing.JButton excluirCidade;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton searchCidade;
-    private javax.swing.JTextField searchNome;
-    private javax.swing.JTextField searchSigla;
-    private javax.swing.JTextField searchUf;
+    private javax.swing.JButton btAdicionar;
+    private javax.swing.JButton btAtualizar;
+    private javax.swing.JButton btConsultar;
+    private javax.swing.JButton btExcluir;
+    private javax.swing.JButton btVoltar;
+    private javax.swing.JTextField campoCidade;
+    private javax.swing.JTextField campoSigla;
+    private javax.swing.JTextField campoUf;
+    private javax.swing.JLabel cidade;
+    private javax.swing.JPanel painel;
+    private javax.swing.JLabel sigla;
+    private javax.swing.JScrollPane tabelaConsultas;
     private javax.swing.JTable tableCidades;
+    private javax.swing.JLabel tituloEmpresa;
+    private javax.swing.JLabel tituloTela;
+    private javax.swing.JLabel uf;
     // End of variables declaration//GEN-END:variables
 }

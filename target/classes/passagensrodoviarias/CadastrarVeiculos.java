@@ -41,79 +41,79 @@ public class CadastrarVeiculos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        nomeMotorista = new javax.swing.JTextField();
-        numbVeiculo = new javax.swing.JTextField();
-        placaVeiculo = new javax.swing.JTextField();
-        modeloVeiculo = new javax.swing.JTextField();
-        qtdPoltronasTextField = new javax.swing.JTextField();
-        buttonCadastrar = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        numero = new javax.swing.JLabel();
+        placa = new javax.swing.JLabel();
+        nomeMotorista = new javax.swing.JLabel();
+        modelo = new javax.swing.JLabel();
+        qtPoltronas = new javax.swing.JLabel();
+        campoMotorista = new javax.swing.JTextField();
+        campoNumero = new javax.swing.JTextField();
+        campoPlaca = new javax.swing.JTextField();
+        campoModelo = new javax.swing.JTextField();
+        campoPoltronas = new javax.swing.JTextField();
+        btCadastrar = new javax.swing.JButton();
+        painel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Número:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        numero.setForeground(new java.awt.Color(255, 255, 255));
+        numero.setText("Número:");
+        getContentPane().add(numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Placa:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+        placa.setForeground(new java.awt.Color(255, 255, 255));
+        placa.setText("Placa:");
+        getContentPane().add(placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nome do Motorista");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        nomeMotorista.setForeground(new java.awt.Color(255, 255, 255));
+        nomeMotorista.setText("Nome do Motorista");
+        getContentPane().add(nomeMotorista, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Modelo:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        modelo.setForeground(new java.awt.Color(255, 255, 255));
+        modelo.setText("Modelo:");
+        getContentPane().add(modelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Quantidade de Poltronas");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
-        getContentPane().add(nomeMotorista, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 260, -1));
-        getContentPane().add(numbVeiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 120, -1));
-        getContentPane().add(placaVeiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 120, -1));
-        getContentPane().add(modeloVeiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 120, -1));
-        getContentPane().add(qtdPoltronasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 30, -1));
+        qtPoltronas.setForeground(new java.awt.Color(255, 255, 255));
+        qtPoltronas.setText("Quantidade de Poltronas");
+        getContentPane().add(qtPoltronas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
+        getContentPane().add(campoMotorista, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 260, -1));
+        getContentPane().add(campoNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 120, -1));
+        getContentPane().add(campoPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 120, -1));
+        getContentPane().add(campoModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 120, -1));
+        getContentPane().add(campoPoltronas, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 30, -1));
 
-        buttonCadastrar.setText("Cadastrar");
-        buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        btCadastrar.setText("Cadastrar");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadastrarActionPerformed(evt);
+                btCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
+        getContentPane().add(btCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(51, 0, 204));
+        painel.setBackground(new java.awt.Color(51, 0, 204));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
+        painel.setLayout(painelLayout);
+        painelLayout.setHorizontalGroup(
+            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 420, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        painelLayout.setVerticalGroup(
+            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 270, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 270));
+        getContentPane().add(painel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
-        String numero = numbVeiculo.getText();
-        String placa = placaVeiculo.getText();
-        String motorista = nomeMotorista.getText();
-        String modelo = modeloVeiculo.getText();
-        int qtdPoltronas = Integer.parseInt(qtdPoltronasTextField.getText());
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        String numero = campoNumero.getText();
+        String placa = campoPlaca.getText();
+        String motorista = campoMotorista.getText();
+        String modelo = campoModelo.getText();
+        int qtdPoltronas = Integer.parseInt(campoPoltronas.getText());
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
             
@@ -136,7 +136,7 @@ public class CadastrarVeiculos extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println("Erro ao cadastrar veículo: " + ex.getMessage());
         }
-    }//GEN-LAST:event_buttonCadastrarActionPerformed
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,18 +175,18 @@ public class CadastrarVeiculos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCadastrar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField modeloVeiculo;
-    private javax.swing.JTextField nomeMotorista;
-    private javax.swing.JTextField numbVeiculo;
-    private javax.swing.JTextField placaVeiculo;
-    private javax.swing.JTextField qtdPoltronasTextField;
+    private javax.swing.JButton btCadastrar;
+    private javax.swing.JTextField campoModelo;
+    private javax.swing.JTextField campoMotorista;
+    private javax.swing.JTextField campoNumero;
+    private javax.swing.JTextField campoPlaca;
+    private javax.swing.JTextField campoPoltronas;
+    private javax.swing.JLabel modelo;
+    private javax.swing.JLabel nomeMotorista;
+    private javax.swing.JLabel numero;
+    private javax.swing.JPanel painel;
+    private javax.swing.JLabel placa;
+    private javax.swing.JLabel qtPoltronas;
     // End of variables declaration//GEN-END:variables
 
 }

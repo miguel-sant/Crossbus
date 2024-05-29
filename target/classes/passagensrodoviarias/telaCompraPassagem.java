@@ -26,21 +26,230 @@ public class telaCompraPassagem extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        painel = new javax.swing.JPanel();
+        tituloEmpresa = new javax.swing.JLabel();
+        tituloTela = new javax.swing.JLabel();
+        painelConsultas = new javax.swing.JPanel();
+        origem = new javax.swing.JLabel();
+        campoOrigem = new javax.swing.JTextField();
+        destino = new javax.swing.JLabel();
+        campoDestino = new javax.swing.JTextField();
+        ida = new javax.swing.JLabel();
+        campoIda = new javax.swing.JFormattedTextField();
+        volta = new javax.swing.JLabel();
+        campoVolta = new javax.swing.JFormattedTextField();
+        soIda = new javax.swing.JLabel();
+        btSoIda = new javax.swing.JRadioButton();
+        adultos = new javax.swing.JLabel();
+        spinnerAdultos = new javax.swing.JSpinner();
+        criancas = new javax.swing.JLabel();
+        spinnerCriancas = new javax.swing.JSpinner();
+        btVoltar = new javax.swing.JButton();
+        btPesquisar = new javax.swing.JButton();
+        resultadoConsulta = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("CROSSBUS");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 0, 255));
+
+        painel.setBackground(new java.awt.Color(51, 0, 204));
+        painel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tituloEmpresa.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
+        tituloEmpresa.setForeground(new java.awt.Color(255, 255, 255));
+        tituloEmpresa.setText("CROSSBUS");
+        painel.add(tituloEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+
+        tituloTela.setFont(new java.awt.Font("Segoe UI Black", 0, 64)); // NOI18N
+        tituloTela.setForeground(new java.awt.Color(255, 255, 255));
+        tituloTela.setText("Passagens");
+        painel.add(tituloTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, -1, -1));
+
+        origem.setText("Origem");
+
+        destino.setText("Destino");
+
+        ida.setText("IDA");
+
+        campoIda.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        campoIda.setText("25/10/2025");
+        campoIda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoIdaActionPerformed(evt);
+            }
+        });
+
+        volta.setText("VOLTA");
+
+        campoVolta.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        campoVolta.setText("30/10/2025");
+        campoVolta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoVoltaActionPerformed(evt);
+            }
+        });
+
+        soIda.setText("Só ida");
+
+        adultos.setText("Adultos");
+
+        criancas.setText("Crianças");
+
+        btVoltar.setText("VOLTAR");
+
+        btPesquisar.setText("PESQUISAR");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "N° Ônibus", "Horário", "Assentos Disponíveis", "Preço", "Possui Leito?"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Short.class, java.lang.Short.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        resultadoConsulta.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        javax.swing.GroupLayout painelConsultasLayout = new javax.swing.GroupLayout(painelConsultas);
+        painelConsultas.setLayout(painelConsultasLayout);
+        painelConsultasLayout.setHorizontalGroup(
+            painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelConsultasLayout.createSequentialGroup()
+                .addContainerGap(74, Short.MAX_VALUE)
+                .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelConsultasLayout.createSequentialGroup()
+                        .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(campoIda)
+                            .addComponent(origem)
+                            .addComponent(ida)
+                            .addComponent(campoOrigem, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                            .addGroup(painelConsultasLayout.createSequentialGroup()
+                                .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(adultos)
+                                    .addComponent(spinnerAdultos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(118, 118, 118)
+                                .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(spinnerCriancas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(criancas))))
+                        .addGap(150, 150, 150)
+                        .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(volta)
+                            .addComponent(destino)
+                            .addComponent(campoDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(painelConsultasLayout.createSequentialGroup()
+                                .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(painelConsultasLayout.createSequentialGroup()
+                                        .addComponent(btVoltar)
+                                        .addGap(92, 92, 92)
+                                        .addComponent(btPesquisar))
+                                    .addComponent(campoVolta))
+                                .addGap(18, 18, 18)
+                                .addComponent(soIda)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btSoIda)))
+                        .addGap(32, 32, 32))
+                    .addGroup(painelConsultasLayout.createSequentialGroup()
+                        .addComponent(resultadoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        painelConsultasLayout.setVerticalGroup(
+            painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelConsultasLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(origem)
+                    .addComponent(destino))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ida)
+                    .addComponent(volta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(soIda)
+                    .addComponent(btSoIda)
+                    .addComponent(campoIda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoVolta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adultos)
+                    .addComponent(criancas))
+                .addGap(18, 18, 18)
+                .addGroup(painelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spinnerAdultos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinnerCriancas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btPesquisar)
+                    .addComponent(btVoltar))
+                .addGap(18, 18, 18)
+                .addComponent(resultadoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        painel.add(painelConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 850, 690));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void campoIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIdaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoIdaActionPerformed
+
+    private void campoVoltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoVoltaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoVoltaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +287,28 @@ public class telaCompraPassagem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel adultos;
+    private javax.swing.JButton btPesquisar;
+    private javax.swing.JRadioButton btSoIda;
+    private javax.swing.JButton btVoltar;
+    private javax.swing.JTextField campoDestino;
+    private javax.swing.JFormattedTextField campoIda;
+    private javax.swing.JTextField campoOrigem;
+    private javax.swing.JFormattedTextField campoVolta;
+    private javax.swing.JLabel criancas;
+    private javax.swing.JLabel destino;
+    private javax.swing.JLabel ida;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel origem;
+    private javax.swing.JPanel painel;
+    private javax.swing.JPanel painelConsultas;
+    private javax.swing.JScrollPane resultadoConsulta;
+    private javax.swing.JLabel soIda;
+    private javax.swing.JSpinner spinnerAdultos;
+    private javax.swing.JSpinner spinnerCriancas;
+    private javax.swing.JLabel tituloEmpresa;
+    private javax.swing.JLabel tituloTela;
+    private javax.swing.JLabel volta;
     // End of variables declaration//GEN-END:variables
 }
