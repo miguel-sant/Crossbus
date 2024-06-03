@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -30,7 +31,7 @@ public class TelaCidade extends javax.swing.JFrame {
     
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USER = "root";
-    private static final String PASSWORD = "password";
+    private static final String PASSWORD = "";
     
     public TelaCidade() {
         initComponents();
@@ -40,6 +41,13 @@ public class TelaCidade extends javax.swing.JFrame {
         setSize(1280, 860);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ((DefaultTableCellRenderer)tableCidades.getTableHeader().getDefaultRenderer())
+        .setHorizontalAlignment(SwingConstants.CENTER);
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        for(int i=0; i<tableCidades.getColumnCount(); i++) {
+            tableCidades.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
     }
     
     private void carregarDadosTabela() {

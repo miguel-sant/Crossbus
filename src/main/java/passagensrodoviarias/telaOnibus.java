@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -29,7 +30,7 @@ public class telaOnibus extends javax.swing.JFrame {
     
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USER = "root";
-    private static final String PASSWORD = "password";
+    private static final String PASSWORD = "";
     
     public telaOnibus() {
         initComponents();
@@ -39,6 +40,13 @@ public class telaOnibus extends javax.swing.JFrame {
         setSize(1280, 860);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ((DefaultTableCellRenderer)tableVeiculos.getTableHeader().getDefaultRenderer())
+        .setHorizontalAlignment(SwingConstants.CENTER);
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        for(int i=0; i<tableVeiculos.getColumnCount(); i++) {
+            tableVeiculos.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
         
         tableVeiculos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -49,7 +57,6 @@ public class telaOnibus extends javax.swing.JFrame {
     }
     
     private void tableVeiculosMouseClicked(java.awt.event.MouseEvent evt) {
-        // se o click for igual a duas vezes
         if (evt.getClickCount() == 2) {
             int linhaSelecionada = tableVeiculos.getSelectedRow();
             if (linhaSelecionada != -1) {
@@ -95,18 +102,11 @@ public class telaOnibus extends javax.swing.JFrame {
                         Object[] rowData = {rs.getString("numero"), rs.getString("placa"), rs.getString("motorista"), rs.getInt("qtd_poltronas")};
                         model.addRow(rowData);
                     }
-                    // Jogar dados da celula qtd poltronas para esquerda.
-                    tableVeiculos.getColumnModel().getColumn(3).setCellRenderer(new DefaultTableCellRenderer() {
-                        {
-                            setHorizontalAlignment(SwingConstants.LEFT);
-                        }
-                    });
                 }
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Erro ao carregar dados da tabela: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
-        
     }
     
     
@@ -118,7 +118,6 @@ public class telaOnibus extends javax.swing.JFrame {
             String sql = "SELECT numero, placa, modelo, motorista, qtd_poltronas FROM veiculos";
             try (PreparedStatement pstmt = conn.prepareStatement(sql);
                  ResultSet rs = pstmt.executeQuery()) {
-                // Preenche a tabela com os dados dos veículos
                 while (rs.next()) {
                     model.addRow(new Object[]{rs.getString("numero"), rs.getString("placa"),
                             rs.getString("modelo"), rs.getString("motorista"), rs.getInt("qtd_poltronas")});
@@ -278,10 +277,8 @@ public class telaOnibus extends javax.swing.JFrame {
     }//GEN-LAST:event_searchPlacaActionPerformed
 
     private void adicionarOnibusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarOnibusActionPerformed
-        
         CadastrarVeiculos cadastrarVeiculos = new CadastrarVeiculos();
-        cadastrarVeiculos.setVisible(true);
-        
+        cadastrarVeiculos.setVisible(true); 
     }//GEN-LAST:event_adicionarOnibusActionPerformed
 
     private void searchNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchNumeroActionPerformed
@@ -293,7 +290,6 @@ public class telaOnibus extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void searchVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchVeiculoActionPerformed
-
         String numero = searchNumero.getText().trim();
         String placa = searchPlaca.getText().trim();
         String motorista = searchMotorista.getText().trim();
@@ -304,7 +300,7 @@ public class telaOnibus extends javax.swing.JFrame {
         
         if (!numero.isEmpty()) {
             sqlBuilder.append(" AND numero LIKE ?");
-            params.add("%" + numero + "%"); // Adiciona o caractere '%' para pesquisar por substrings
+            params.add("%" + numero + "%");
         }
         if (!placa.isEmpty()) {
             sqlBuilder.append(" AND placa LIKE ?");
@@ -349,37 +345,28 @@ public class telaOnibus extends javax.swing.JFrame {
     }
     
     private void excluirDados() {
-        // Obter a linha selecionada
         int linhaSelecionada = getLinhaSelecionada();
         if (linhaSelecionada == -1) {
             JOptionPane.showMessageDialog(this, "Nenhuma linha selecionada.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        // Confirmar exclusão com o usuário
         int resposta = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir este veículo?", "Confirmação", JOptionPane.YES_NO_OPTION);
         if (resposta != JOptionPane.YES_OPTION) {
-            return; // Cancelar exclusão se o usuário escolher não
+            return;
         }
-
-        // Obter os dados associados à linha selecionada
+        
         DefaultTableModel model = (DefaultTableModel) tableVeiculos.getModel();
-        String numero = (String) model.getValueAt(linhaSelecionada, 0); // Supondo que o número do veículo esteja na primeira coluna
+        String numero = (String) model.getValueAt(linhaSelecionada, 0);
 
-        // Conectar ao banco de dados e excluir os dados
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            // Instrução SQL para excluir os dados
             String sql = "DELETE FROM veiculos WHERE numero = ?";
 
-            // Preparar a instrução SQL
             try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 pstmt.setString(1, numero);
 
-                // Executar a instrução SQL
                 int rowsAffected = pstmt.executeUpdate();
                 if (rowsAffected > 0) {
                     JOptionPane.showMessageDialog(this, "Dados excluídos com sucesso.");
-                    // Recarregar os dados na tabela
                     carregarDadosTabela();
                 } else {
                     JOptionPane.showMessageDialog(this, "Nenhum dado foi excluído.", "Erro", JOptionPane.ERROR_MESSAGE);
