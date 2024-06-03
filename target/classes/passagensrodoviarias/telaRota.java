@@ -9,9 +9,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,7 +28,7 @@ public class telaRota extends javax.swing.JFrame {
 
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USER = "root";
-    private static final String PASSWORD = "password";
+    private static final String PASSWORD = "";
     
     public telaRota() {
         initComponents();
@@ -36,6 +42,14 @@ public class telaRota extends javax.swing.JFrame {
         setSize(1280, 860);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ((DefaultTableCellRenderer)tableRotas.getTableHeader().getDefaultRenderer())
+        .setHorizontalAlignment(SwingConstants.CENTER);
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        for(int i=0; i<tableRotas.getColumnCount(); i++) {
+            tableRotas.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
+        
     }
     
     public void atualizarTabelaRotas() {
@@ -43,14 +57,17 @@ public class telaRota extends javax.swing.JFrame {
         model.setRowCount(0);
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String sql = "SELECT destino, origem, data_de_partida, horas_da_partida, onibus, preco FROM viagens";
+            String sql = "SELECT id_cidade_origem, id_cidade_destino, data_saida, hora_saida, id_veiculo, valor_passagem, poltrona FROM passagens";
             try (PreparedStatement pstmt = conn.prepareStatement(sql);
                  ResultSet rs = pstmt.executeQuery()) {
-                
+
                 while (rs.next()) {
-                    model.addRow(new Object[]{rs.getString("destino"), rs.getString("origem"),
-                            rs.getString("data_de_partida"), rs.getString("horas_da_partida"), rs.getString("onibus"),
-                    rs.getDouble("preco")});
+                    model.addRow(new Object[]{
+                        rs.getInt("id_cidade_origem"), rs.getInt("id_cidade_destino"),
+                        rs.getDate("data_saida"), rs.getTime("hora_saida"), 
+                        rs.getInt("id_veiculo"), rs.getDouble("valor_passagem"),
+                        rs.getInt("poltrona")
+                    });
                 }
             }
         } catch (SQLException ex) {
@@ -109,11 +126,11 @@ public class telaRota extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Origem", "Destino", "Data de partida", "Horas de partida", "Ônibus", "Valor"
+                "Origem", "Destino", "Data de partida", "Horas de partida", "Ônibus", "Valor", "Poltronas"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -242,7 +259,14 @@ public class telaRota extends javax.swing.JFrame {
         String horas = horaPartida.getText();
         String valor = valorRota.getText();
 
-        if (origem.equals("SELECIONE") || destino.equals("SELECIONE") || data.isEmpty() || horas.isEmpty() || valor.isEmpty()) {
+        System.out.println("Origem: " + origem);
+        System.out.println("Destino: " + destino);
+        System.out.println("Ônibus: " + onibus);
+        System.out.println("Data: " + data);
+        System.out.println("Horas: " + horas);
+        System.out.println("Valor: " + valor);
+
+        if (origem.equals("SELECIONE") || destino.equals("SELECIONE") || onibus.equals("SELECIONE") || data.isEmpty() || horas.isEmpty() || valor.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos para cadastrar a rota.");
             return;
         }
@@ -253,15 +277,40 @@ public class telaRota extends javax.swing.JFrame {
         try {
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
-            String sql = "INSERT INTO viagens (origem, destino, onibus, data_de_partida, horas_da_partida, preco) VALUES (?, ?, ?, ?, ?, ?)";
+            int origemId = getCidadeId(origem);
+            int destinoId = getCidadeId(destino);
+            int onibusId = getVeiculoId(onibus);
+            int qtdPoltronas = getQtdPoltronas(onibusId);
+
+            System.out.println("ID de Origem: " + origemId);
+            System.out.println("ID de Destino: " + destinoId);
+            System.out.println("ID do Ônibus: " + onibusId);
+            System.out.println("Quantidade de Poltronas: " + qtdPoltronas);
+
+            String sql = "INSERT INTO passagens (id_cidade_origem, id_cidade_destino, id_veiculo, data_saida, hora_saida, valor_passagem, poltrona) VALUES (?, ?, ?, ?, ?, ?, ?)";
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, origem);
-            stmt.setString(2, destino);
-            stmt.setString(3, onibus);
-            stmt.setString(4, data);
-            stmt.setString(5, horas);
-            stmt.setDouble(6, Double.parseDouble(valor));
+            stmt.setInt(1, origemId);
+            stmt.setInt(2, destinoId);
+            stmt.setInt(3, onibusId);
+
+            try {
+                DateFormat inputDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                java.util.Date utilDate = inputDateFormat.parse(data);
+                java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+
+                DateFormat inputTimeFormat = new SimpleDateFormat("HH:mm");
+                java.util.Date utilTime = inputTimeFormat.parse(horas);
+                java.sql.Time sqlTime = new java.sql.Time(utilTime.getTime());
+          
+                stmt.setDate(4, sqlDate);
+                stmt.setTime(5, sqlTime);
+            } catch (ParseException e) {
+                JOptionPane.showMessageDialog(this, "Formato de data ou hora inválido. Use o formato DD/MM/YYYY para a data e HH:MM para a hora.");
+                return;
+            }
             
+            stmt.setDouble(6, Double.parseDouble(valor));
+            stmt.setInt(7, qtdPoltronas);
             stmt.executeUpdate();
 
             JOptionPane.showMessageDialog(this, "Rota cadastrada com sucesso.");
@@ -287,35 +336,31 @@ public class telaRota extends javax.swing.JFrame {
     }//GEN-LAST:event_atualizarRotasActionPerformed
 
     private void excluirRotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirRotaActionPerformed
-        // Obtém a linha selecionada na tabela
         int selectedRow = tableRotas.getSelectedRow();
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Por favor, selecione uma rota para excluir.");
             return;
         }
 
-        // Obtém os valores da linha selecionada para identificar a rota
-        String origem = tableRotas.getValueAt(selectedRow, 0).toString();
-        String destino = tableRotas.getValueAt(selectedRow, 1).toString();
-        String dataPartida = tableRotas.getValueAt(selectedRow, 2).toString();
-        String horasPartida = tableRotas.getValueAt(selectedRow, 3).toString();
-        String onibus = tableRotas.getValueAt(selectedRow, 4).toString();
+        int origem = (int) tableRotas.getValueAt(selectedRow, 0);
+        int destino = (int) tableRotas.getValueAt(selectedRow, 1);
+        java.sql.Date dataPartida = java.sql.Date.valueOf(tableRotas.getValueAt(selectedRow, 2).toString());
+        java.sql.Time horasPartida = java.sql.Time.valueOf(tableRotas.getValueAt(selectedRow, 3).toString());
+        int onibus = (int) tableRotas.getValueAt(selectedRow, 4);
 
         int confirm = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir esta rota?", "Confirmar Exclusão", JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION) {
             try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-                // Query para excluir a rota
-                String sql = "DELETE FROM viagens WHERE origem = ? AND destino = ? AND data_de_partida = ? AND horas_da_partida = ? AND onibus = ?";
+                String sql = "DELETE FROM passagens WHERE id_cidade_origem = ? AND id_cidade_destino = ? AND data_saida = ? AND hora_saida = ? AND id_veiculo = ?";
                 try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                    pstmt.setString(1, origem);
-                    pstmt.setString(2, destino);
-                    pstmt.setString(3, dataPartida);
-                    pstmt.setString(4, horasPartida);
-                    pstmt.setString(5, onibus);
+                    pstmt.setInt(1, origem);
+                    pstmt.setInt(2, destino);
+                    pstmt.setDate(3, dataPartida);
+                    pstmt.setTime(4, horasPartida);
+                    pstmt.setInt(5, onibus);
                     pstmt.executeUpdate();
                 }
 
-                // Remove a linha da tabela
                 DefaultTableModel model = (DefaultTableModel) tableRotas.getModel();
                 model.removeRow(selectedRow);
 
@@ -331,22 +376,26 @@ public class telaRota extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltarActionPerformed
     private void carregarDadosTabela() {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String sql = "SELECT origem, destino, data_de_partida, horas_da_partida, onibus, preco FROM viagens";
+            String sql = "SELECT origem.nome_cidade AS origem, destino.nome_cidade AS destino, data_saida, hora_saida, id_veiculo, valor_passagem, poltrona " +
+                         "FROM passagens " +
+                         "JOIN cidades AS origem ON passagens.id_cidade_origem = origem.id " +
+                         "JOIN cidades AS destino ON passagens.id_cidade_destino = destino.id";
 
             try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
                 try (ResultSet rs = pstmt.executeQuery()) {
                     DefaultTableModel model = (DefaultTableModel) tableRotas.getModel();
                     model.setRowCount(0);
                     while (rs.next()) {
-                        Object[] rowData = {
-                            rs.getString("origem"),
-                            rs.getString("destino"),
-                            rs.getString("data_de_partida"),
-                            rs.getString("horas_da_partida"),
-                            rs.getString("onibus"),
-                            rs.getDouble("preco")
-                        };
+                        String cidadeOrigem = rs.getString("origem");
+                        String cidadeDestino = rs.getString("destino");
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                        String dataSaidaFormatted = dateFormat.format(rs.getDate("data_saida"));
+                        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+                        String horaSaidaFormatted = timeFormat.format(rs.getTime("hora_saida"));
+                        int idVeiculo = rs.getInt("id_veiculo");
+                        String valorPassagemFormatted = "R$ " + String.format("%.2f", rs.getDouble("valor_passagem"));
+                        int poltrona = rs.getInt("poltrona");
+                        Object[] rowData = {cidadeOrigem, cidadeDestino, dataSaidaFormatted, horaSaidaFormatted, idVeiculo, valorPassagemFormatted, poltrona};
                         model.addRow(rowData);
                     }
                 }
@@ -367,9 +416,49 @@ public class telaRota extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    private void preencherComboBoxes() {
-        preencherComboBox(selectOrigem);
-        preencherComboBox(selectDestino);
+   
+    
+    private int getCidadeId(String cidadeUf) {
+        String[] partes = cidadeUf.split("-");
+        String cidade = partes[0];
+        String uf = partes[1];
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            String sql = "SELECT id FROM cidades WHERE nome_cidade = ? AND uf = ?";
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setString(1, cidade);
+                pstmt.setString(2, uf);
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    if (rs.next()) {
+                        return rs.getInt("id");
+                    } else {
+                        throw new SQLException("Cidade não encontrada.");
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return -1;
+        }
+    }
+
+    private int getVeiculoId(String onibusNumero) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            String sql = "SELECT id FROM veiculos WHERE numero = ?";
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setString(1, onibusNumero);
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    if (rs.next()) {
+                        return rs.getInt("id");
+                    } else {
+                        throw new SQLException("Ônibus não encontrado.");
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return -1;
+        }
     }
     
     private void preencherComboBox(JComboBox<String> comboBox) {
@@ -380,7 +469,7 @@ public class telaRota extends javax.swing.JFrame {
         try {
             String url = "jdbc:mysql://localhost:3306/passagens";
             String user = "root";
-            String password = "password";
+            String password = "";
 
             conn = DriverManager.getConnection(url, user, password);
 
@@ -421,7 +510,7 @@ public class telaRota extends javax.swing.JFrame {
         try {
             String url = "jdbc:mysql://localhost:3306/passagens";
             String user = "root";
-            String password = "password";
+            String password = "";
 
             conn = DriverManager.getConnection(url, user, password);
 
@@ -452,18 +541,26 @@ public class telaRota extends javax.swing.JFrame {
         }
     }
     
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+    private int getQtdPoltronas(int veiculoId) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            String sql = "SELECT qtd_poltronas FROM veiculos WHERE id = ?";
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setInt(1, veiculoId);
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    if (rs.next()) {
+                        return rs.getInt("qtd_poltronas");
+                    } else {
+                        throw new SQLException("Veículo não encontrado.");
+                    }
                 }
             }
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(telaRota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return -1;
         }
-
+    }
+    
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new telaRota().setVisible(true);

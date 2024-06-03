@@ -41,7 +41,7 @@ public class telaHome extends javax.swing.JFrame {
         manterVeiculos = new javax.swing.JLabel();
         manterViagens = new javax.swing.JLabel();
         faturamento = new javax.swing.JLabel();
-        passagens = new javax.swing.JLabel();
+        manterRotas = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         manterCidade = new javax.swing.JLabel();
 
@@ -63,7 +63,7 @@ public class telaHome extends javax.swing.JFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
         Logout.setText("Sair");
-        Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LogoutActionPerformed(evt);
@@ -80,8 +80,8 @@ public class telaHome extends javax.swing.JFrame {
         jLabel7.setText("VIAGENS");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, -1, -1));
 
-        jLabel10.setText("PASSAGENS VENDIDAS");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, 140, 20));
+        jLabel10.setText("ROTAS");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 410, 40, 20));
 
         jLabel12.setText("FATURAMENTO");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, -1, -1));
@@ -97,15 +97,25 @@ public class telaHome extends javax.swing.JFrame {
 
         manterViagens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ponteiro-de-parada-de-onibus(1).png"))); // NOI18N
         manterViagens.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manterViagens.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                manterViagensMouseClicked(evt);
+            }
+        });
         jPanel1.add(manterViagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
 
         faturamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/grafico-de-crescimento.png"))); // NOI18N
-        faturamento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        faturamento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(faturamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
-        passagens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/forma-de-pagamento(1).png"))); // NOI18N
-        passagens.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(passagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 120, 100));
+        manterRotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/rota (1).png"))); // NOI18N
+        manterRotas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manterRotas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                manterRotasMouseClicked(evt);
+            }
+        });
+        jPanel1.add(manterRotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 200, 160));
 
         jLabel3.setText("CIDADES");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
@@ -147,6 +157,16 @@ public class telaHome extends javax.swing.JFrame {
         TelaCidade telaCidade = new TelaCidade();
         telaCidade.setVisible(true);
     }//GEN-LAST:event_manterCidadeMouseClicked
+
+    private void manterRotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manterRotasMouseClicked
+        telaRota telaRota = new telaRota();
+        telaRota.setVisible(true);
+    }//GEN-LAST:event_manterRotasMouseClicked
+
+    private void manterViagensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manterViagensMouseClicked
+        telaCompraPassagem telaPassagem = new telaCompraPassagem();
+        telaPassagem.setVisible(true);
+    }//GEN-LAST:event_manterViagensMouseClicked
 
     /**
      * @param args the command line arguments
@@ -196,9 +216,9 @@ public class telaHome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel manterCidade;
+    private javax.swing.JLabel manterRotas;
     private javax.swing.JLabel manterVeiculos;
     private javax.swing.JLabel manterViagens;
     private javax.swing.JLabel nomeDoUsuario;
-    private javax.swing.JLabel passagens;
     // End of variables declaration//GEN-END:variables
 }
