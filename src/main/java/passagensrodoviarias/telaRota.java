@@ -57,17 +57,27 @@ public class telaRota extends javax.swing.JFrame {
         model.setRowCount(0);
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String sql = "SELECT id_cidade_origem, id_cidade_destino, data_saida, hora_saida, id_veiculo, valor_passagem, poltrona FROM passagens";
-            try (PreparedStatement pstmt = conn.prepareStatement(sql);
-                 ResultSet rs = pstmt.executeQuery()) {
-
-                while (rs.next()) {
-                    model.addRow(new Object[]{
-                        rs.getInt("id_cidade_origem"), rs.getInt("id_cidade_destino"),
-                        rs.getDate("data_saida"), rs.getTime("hora_saida"), 
-                        rs.getInt("id_veiculo"), rs.getDouble("valor_passagem"),
-                        rs.getInt("poltrona")
-                    });
+            String sql = "SELECT origem.nome_cidade AS origem, destino.nome_cidade AS destino, veiculos.numero AS numero_onibus, data_saida, hora_saida, id_veiculo, valor_passagem, poltrona " +
+                         "FROM passagens " +
+                         "JOIN veiculos ON passagens.id_veiculo = veiculos.id " +
+                         "JOIN cidades AS origem ON passagens.id_cidade_origem = origem.id " +
+                         "JOIN cidades AS destino ON passagens.id_cidade_destino = destino.id";
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    while (rs.next()) {
+                        String cidadeOrigem = rs.getString("origem");
+                        String cidadeDestino = rs.getString("destino");
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                        String dataSaidaFormatted = dateFormat.format(rs.getDate("data_saida"));
+                        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+                        String horaSaidaFormatted = timeFormat.format(rs.getTime("hora_saida"));
+                        int idVeiculo = rs.getInt("id_veiculo");
+                        String numeroOnibus = rs.getString("numero_onibus");
+                        String valorPassagemFormatted = "R$ " + String.format("%.2f", rs.getDouble("valor_passagem"));
+                        int poltrona = rs.getInt("poltrona");
+                        Object[] rowData = {cidadeOrigem, cidadeDestino, dataSaidaFormatted, horaSaidaFormatted, numeroOnibus, valorPassagemFormatted, poltrona};
+                        model.addRow(rowData);
+                    }
                 }
             }
         } catch (SQLException ex) {
@@ -203,6 +213,11 @@ public class telaRota extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, -1, -1));
 
         selectOnibus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectOnibus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectOnibusActionPerformed(evt);
+            }
+        });
         jPanel1.add(selectOnibus, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 110, -1));
 
         atualizarRotas.setText("Atualizar");
@@ -374,10 +389,15 @@ public class telaRota extends javax.swing.JFrame {
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
+
+    private void selectOnibusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectOnibusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectOnibusActionPerformed
     private void carregarDadosTabela() {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String sql = "SELECT origem.nome_cidade AS origem, destino.nome_cidade AS destino, data_saida, hora_saida, id_veiculo, valor_passagem, poltrona " +
+            String sql = "SELECT origem.nome_cidade AS origem, destino.nome_cidade AS destino, veiculos.numero AS numero_onibus, data_saida, hora_saida, id_veiculo, valor_passagem, poltrona " +
                          "FROM passagens " +
+                         "JOIN veiculos ON passagens.id_veiculo = veiculos.id " +
                          "JOIN cidades AS origem ON passagens.id_cidade_origem = origem.id " +
                          "JOIN cidades AS destino ON passagens.id_cidade_destino = destino.id";
 
@@ -393,9 +413,10 @@ public class telaRota extends javax.swing.JFrame {
                         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
                         String horaSaidaFormatted = timeFormat.format(rs.getTime("hora_saida"));
                         int idVeiculo = rs.getInt("id_veiculo");
+                        String numeroOnibus = rs.getString("numero_onibus");
                         String valorPassagemFormatted = "R$ " + String.format("%.2f", rs.getDouble("valor_passagem"));
                         int poltrona = rs.getInt("poltrona");
-                        Object[] rowData = {cidadeOrigem, cidadeDestino, dataSaidaFormatted, horaSaidaFormatted, idVeiculo, valorPassagemFormatted, poltrona};
+                        Object[] rowData = {cidadeOrigem, cidadeDestino, dataSaidaFormatted, horaSaidaFormatted, numeroOnibus, valorPassagemFormatted, poltrona};
                         model.addRow(rowData);
                     }
                 }

@@ -17,7 +17,7 @@ public class BancoDeDados {
      // Configurações de conexão com o banco de dados
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USUARIO = "root";
-    private static final String SENHA = "SetRootPasswordHere";
+    private static final String SENHA = "";
 
     public static boolean inserirDadosNoBanco(String login, String senha, String nome, String email) {
         // Define a flag para indicar se o cadastro foi bem-sucedido
@@ -49,4 +49,28 @@ public class BancoDeDados {
 
         return cadastradoComSucesso;
     }
+  
+    // Método para atualizar o estado da poltrona no banco de dados
+    public static void atualizarEstadoPoltrona(int numeroPoltrona) {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/passagens", "root", "")) {
+            // SQL para atualizar o estado da poltrona para "comprada" (1)
+            String sql = "UPDATE passagens SET poltrona_comprada = 1 WHERE poltrona = ?";
+            
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                // Define o número da poltrona na consulta SQL
+                statement.setInt(1, numeroPoltrona);
+                
+                // Executa a atualização
+                int rowsUpdated = statement.executeUpdate();
+                
+                if (rowsUpdated > 0) {
+                    System.out.println("Estado da poltrona " + numeroPoltrona + " atualizado com sucesso!");
+                } else {
+                    System.out.println("Falha ao atualizar o estado da poltrona " + numeroPoltrona + ".");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao conectar ao banco de dados: " + e.getMessage());
+        }
+}
 }
