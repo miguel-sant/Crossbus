@@ -28,7 +28,7 @@ public class telaRota extends javax.swing.JFrame {
 
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USER = "root";
-    private static final String PASSWORD = "password";
+    private static final String PASSWORD = "";
     
     public telaRota() {
         initComponents();
@@ -213,6 +213,11 @@ public class telaRota extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, -1, -1));
 
         selectOnibus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectOnibus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectOnibusActionPerformed(evt);
+            }
+        });
         jPanel1.add(selectOnibus, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 110, -1));
 
         atualizarRotas.setText("Atualizar");
@@ -384,6 +389,10 @@ public class telaRota extends javax.swing.JFrame {
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
+
+    private void selectOnibusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectOnibusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectOnibusActionPerformed
     private void carregarDadosTabela() {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
             String sql = "SELECT origem.nome_cidade AS origem, destino.nome_cidade AS destino, veiculos.numero AS numero_onibus, data_saida, hora_saida, id_veiculo, valor_passagem, poltrona " +
@@ -481,7 +490,7 @@ public class telaRota extends javax.swing.JFrame {
         try {
             String url = "jdbc:mysql://localhost:3306/passagens";
             String user = "root";
-            String password = "password";
+            String password = "";
 
             conn = DriverManager.getConnection(url, user, password);
 
@@ -522,7 +531,7 @@ public class telaRota extends javax.swing.JFrame {
         try {
             String url = "jdbc:mysql://localhost:3306/passagens";
             String user = "root";
-            String password = "password";
+            String password = "";
 
             conn = DriverManager.getConnection(url, user, password);
 

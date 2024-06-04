@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -20,12 +21,16 @@ import javax.swing.text.DocumentFilter;
  * @author miguelvarjao
  */
 public class TelaPagamento extends javax.swing.JFrame {
+    private int idPassagem;
+    private int numeroPoltronaSelecionada;
 
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USER = "root";
-    private static final String PASSWORD = "SetRootPasswordHere";
+    private static final String PASSWORD = "";
     
-    public TelaPagamento() {
+    public TelaPagamento(int idPassagem) {
+        this.idPassagem = idPassagem;
+        this.numeroPoltrona = numeroPoltrona;
         initComponents();
         getContentPane().setBackground(Color.WHITE);
         setSize(720, 560);
@@ -177,7 +182,7 @@ public class TelaPagamento extends javax.swing.JFrame {
 
         btnAcessar.setBackground(new java.awt.Color(102, 102, 255));
         btnAcessar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAcessar.setText("Salvar");
+        btnAcessar.setText("Confirmar Pagamento");
         btnAcessar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAcessar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -242,31 +247,22 @@ public class TelaPagamento extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAcessarMouseClicked
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-      String numeroCartao = jTextField1.getText().replaceAll("[^0-9]", "");
-    String nomeProprietario = jTextField2.getText();
-    String mesExpiracao = jTextField3.getText();
-    String anoExpiracao = jTextField4.getText();
-    String cvv = jTextField6.getText();
-    int idUsuario = 1; // Defina o ID do usuário aqui
-    try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/passagens", "root", "SetRootPasswordHere")) {
-        String sql = "INSERT INTO dadoscartao (numero_cartao, nome_proprietario, mes_expiracao, ano_expiracao, cvv, id_usuario) VALUES (?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, numeroCartao);
-            statement.setString(2, nomeProprietario);
-            statement.setString(3, mesExpiracao);
-            statement.setString(4, anoExpiracao);
-            statement.setString(5, cvv);
-            statement.setInt(6, idUsuario);
+     // Exiba uma caixa de diálogo de confirmação
+    int opcao = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja realizar a compra?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 
-            int rowsInserted = statement.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("Dados do cartão salvos com sucesso!");
-            } else {
-                System.out.println("Falha ao salvar os dados do cartão.");
-            }
-        }
-    } catch (SQLException e) {
-        System.err.println("Erro ao conectar ao banco de dados: " + e.getMessage());
+    // Verifique a opção selecionada pelo usuário
+    if (opcao == JOptionPane.YES_OPTION) {
+        // Se o usuário confirmar, prossiga com a lógica de salvar a compra
+        // Insira aqui o código para salvar a compra no banco de dados e fazer outras operações necessárias
+        JOptionPane.showMessageDialog(this, "Compra realizada com sucesso!", "Compra Realizada", JOptionPane.INFORMATION_MESSAGE);
+        dispose();
+        
+        SelecionarPoltrona telaSelecionarPoltrona = new SelecionarPoltrona(idPassagem); // Supondo que você tenha o ID da passagem armazenado em algum lugar
+        telaSelecionarPoltrona.setVisible(true);
+        
+    } else {
+        // Se o usuário cancelar, não faça nada
+        JOptionPane.showMessageDialog(this, "Compra cancelada pelo usuário.", "Compra Cancelada", JOptionPane.WARNING_MESSAGE);
     }
     }//GEN-LAST:event_btnAcessarActionPerformed
 private void formatarNumeroCartao() {
@@ -311,10 +307,10 @@ private void formatarNumeroCartao() {
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaPagamento().setVisible(true);
-            }
-        });
+    public void run() {
+        new TelaPagamento(numeroPoltronaSelecionada).setVisible(true);
+    }
+});
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

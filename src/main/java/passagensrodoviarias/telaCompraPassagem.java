@@ -20,8 +20,8 @@ import javax.swing.table.DefaultTableModel;
 public class telaCompraPassagem extends javax.swing.JFrame {
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USER = "root";
-    private static final String PASSWORD = "password";
-    
+    private static final String PASSWORD = "";
+     private int idPassagemSelecionada;
     public telaCompraPassagem() {
         initComponents();
         setTitle("CADASTRAR ROTAS");
@@ -54,6 +54,7 @@ public class telaCompraPassagem extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         buscarOrigem = new javax.swing.JTextField();
         buscarPassagens = new javax.swing.JButton();
+        botaoComprar = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,11 +81,11 @@ public class telaCompraPassagem extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Origem", "Destino", "Data de partida", "Horas de partida", "Ônibus", "Valor", "Poltronas livres"
+                "Id", "Origem", "Destino", "Data de partida", "Horas de partida", "Ônibus", "Valor", "Poltronas livres"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -114,6 +115,12 @@ public class telaCompraPassagem extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Origem");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
+
+        buscarOrigem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarOrigemActionPerformed(evt);
+            }
+        });
         jPanel1.add(buscarOrigem, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 160, -1));
 
         buscarPassagens.setText("Buscar");
@@ -123,6 +130,14 @@ public class telaCompraPassagem extends javax.swing.JFrame {
             }
         });
         jPanel1.add(buscarPassagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, -1, -1));
+
+        botaoComprar.setText("Comprar");
+        botaoComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoComprarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botaoComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 800, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,7 +151,7 @@ public class telaCompraPassagem extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE))
         );
 
         pack();
@@ -172,6 +187,7 @@ public class telaCompraPassagem extends javax.swing.JFrame {
                     SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
                     String horaFormatada = timeFormat.format(resultSet.getTime("hora_saida"));
                     Object[] row = {
+                        resultSet.getInt("id"),
                         resultSet.getString("origem_cidade"),
                         resultSet.getString("destino_cidade"),
                         dataFormatada,
@@ -187,6 +203,21 @@ public class telaCompraPassagem extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_buscarPassagensActionPerformed
+
+    private void botaoComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoComprarActionPerformed
+  int selectedRow = tablePassagens.getSelectedRow();
+    if (selectedRow != -1) {
+        int id = (int) tablePassagens.getValueAt(selectedRow, 0);
+        TelaPagamento telaPagamento = new TelaPagamento(id);
+        telaPagamento.setVisible(true);
+    } else {
+        System.out.println("Nenhuma linha selecionada.");
+    }
+    }//GEN-LAST:event_botaoComprarActionPerformed
+
+    private void buscarOrigemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarOrigemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarOrigemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,6 +255,7 @@ public class telaCompraPassagem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoComprar;
     private javax.swing.JTextField buscarDestino;
     private javax.swing.JTextField buscarOrigem;
     private javax.swing.JButton buscarPassagens;

@@ -332,7 +332,7 @@ public class telaLogin extends javax.swing.JFrame {
         boolean usuarioValido = false;
 
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/passagens", "root", "SetRootPasswordHere");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/passagens", "root", "");
 
             // Consulta SQL para verificar se o usuário existe
             String sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
