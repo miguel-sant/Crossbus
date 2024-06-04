@@ -256,7 +256,7 @@ public class TelaPagamento extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Compra realizada com sucesso!", "Compra Realizada", JOptionPane.INFORMATION_MESSAGE);
         dispose();
         
-        SelecionarPoltrona telaSelecionarPoltrona = new SelecionarPoltrona(idPassagem); // Supondo que você tenha o ID da passagem armazenado em algum lugar
+        SelecionarPoltrona telaSelecionarPoltrona = new SelecionarPoltrona(idPassagem);
         telaSelecionarPoltrona.setVisible(true);
         
     } else {

@@ -63,12 +63,6 @@ public class TelaCidade extends javax.swing.JFrame {
                         Object[] rowData = {rs.getString("nome_cidade"), rs.getString("sigla_ibge"), rs.getString("uf")};
                         model.addRow(rowData);
                     }
-                    // Jogar dados da celula qtd poltronas para esquerda.
-//                    tableCidades.getColumnModel().getColumn(3).setCellRenderer(new DefaultTableCellRenderer() {
-//                        {
-//                            setHorizontalAlignment(SwingConstants.LEFT);
-//                        }
-//                    });
                 }
             }
         } catch (SQLException ex) {
@@ -256,7 +250,7 @@ public class TelaCidade extends javax.swing.JFrame {
         
         if (!cidade.isEmpty()) {
             sqlBuilder.append(" AND nome_cidade LIKE ?");
-            params.add("%" + cidade + "%"); // Adiciona o caractere '%' para pesquisar por substrings
+            params.add("%" + cidade + "%"); 
         }
         if (!sigla.isEmpty()) {
             sqlBuilder.append(" AND sigla_ibge LIKE ?");
@@ -327,7 +321,6 @@ public class TelaCidade extends javax.swing.JFrame {
             return;
         }
 
-        // Confirmar exclusão com o usuário
         int resposta = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir esta cidade?", "Confirmação", JOptionPane.YES_NO_OPTION);
         if (resposta != JOptionPane.YES_OPTION) {
             return;
@@ -358,7 +351,7 @@ public class TelaCidade extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -380,8 +373,7 @@ public class TelaCidade extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaCidade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaCidade().setVisible(true);

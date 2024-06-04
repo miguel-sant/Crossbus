@@ -32,7 +32,7 @@ public class telaOnibus extends javax.swing.JFrame {
     private static final String USER = "root";
     private static final String PASSWORD = "";
     
-    public telaOnibus() {
+   public telaOnibus() {
         initComponents();
        
         carregarDadosTabela();

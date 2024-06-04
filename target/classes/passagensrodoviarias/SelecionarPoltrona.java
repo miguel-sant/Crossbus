@@ -18,29 +18,26 @@ import javax.swing.JFrame;
  * @author teste
  */
 public class SelecionarPoltrona extends javax.swing.JFrame {
-     private int idPassagem; // Adiciona o campo idPassagem
-    /**
-     * Creates new form SelecionarPoltrona
-     */
-    public SelecionarPoltrona(int idPassagem) {
-        this.idPassagem = idPassagem;
+  
+   
+    public SelecionarPoltrona( ){
         initComponents();
          setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
      public static void atualizarCorBotao(int numeroPoltrona, JButton botao) {
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/passagens", "root", "")) {
-            // SQL para recuperar o estado da poltrona do banco de dados
+           
             String sql = "SELECT poltrona_comprada FROM passagens WHERE poltrona = ?";
             
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
-                // Define o número da poltrona na consulta SQL
+                
                 statement.setInt(1, numeroPoltrona);
                 
-                // Executa a consulta
+               
                 ResultSet resultSet = statement.executeQuery();
                 
-                // Se houver resultados, atualiza a cor do botão de acordo com o estado da poltrona
+               
                 if (resultSet.next()) {
                     int poltronaComprada = resultSet.getInt("poltrona_comprada");
                     if (poltronaComprada == 1) {
@@ -449,17 +446,15 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
         // TODO add your handling code here:
          int numeroPoltronaSelecionada = 33; 
     
-    botao33.setBackground(Color.RED); // Define a cor de fundo do botão como vermelho
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+    botao33.setBackground(Color.RED);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao33ActionPerformed
 
     private void botao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao1ActionPerformed
          int numeroPoltronaSelecionada = 1;
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao1ActionPerformed
 
     private void botao5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao5ActionPerformed
@@ -467,8 +462,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 5; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao5ActionPerformed
 
     private void botao9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao9ActionPerformed
@@ -476,8 +470,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 9; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao9ActionPerformed
 
     private void botao13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao13ActionPerformed
@@ -485,16 +478,14 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 13; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao13ActionPerformed
 
     private void botao17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao17ActionPerformed
         // TODO add your handling code here:
          int numeroPoltronaSelecionada = 17; 
-    
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
+    TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);
     telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao17ActionPerformed
 
@@ -503,7 +494,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 21; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
+    TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);
     telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao21ActionPerformed
 
@@ -512,7 +503,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 25; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
+    TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);
     telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao25ActionPerformed
 
@@ -521,8 +512,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 29; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao29ActionPerformed
 
     private void botao34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao34ActionPerformed
@@ -530,8 +520,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 34; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao34ActionPerformed
 
     private void botao30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao30ActionPerformed
@@ -539,8 +528,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 30; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao30ActionPerformed
 
     private void botao26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao26ActionPerformed
@@ -548,8 +536,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 26;
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao26ActionPerformed
 
     private void botao22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao22ActionPerformed
@@ -557,8 +544,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 22; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao22ActionPerformed
 
     private void botao18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao18ActionPerformed
@@ -566,8 +552,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 18; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao18ActionPerformed
 
     private void botao14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao14ActionPerformed
@@ -575,8 +560,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 14; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao14ActionPerformed
 
     private void botao10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao10ActionPerformed
@@ -584,8 +568,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 10; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao10ActionPerformed
 
     private void botao6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao6ActionPerformed
@@ -593,8 +576,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 6; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao6ActionPerformed
 
     private void botao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao2ActionPerformed
@@ -602,8 +584,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 2; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao2ActionPerformed
 
     private void botao35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao35ActionPerformed
@@ -611,8 +592,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 35; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao35ActionPerformed
 
     private void botao36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao36ActionPerformed
@@ -620,8 +600,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 36; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao36ActionPerformed
 
     private void botao32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao32ActionPerformed
@@ -629,8 +608,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 32; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao32ActionPerformed
 
     private void botao31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao31ActionPerformed
@@ -638,8 +616,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 31; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao31ActionPerformed
 
     private void botao27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao27ActionPerformed
@@ -647,8 +624,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 27;
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao27ActionPerformed
 
     private void botao28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao28ActionPerformed
@@ -656,8 +632,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 28; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao28ActionPerformed
 
     private void botao24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao24ActionPerformed
@@ -665,8 +640,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 24; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao24ActionPerformed
 
     private void botao23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao23ActionPerformed
@@ -674,8 +648,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 23; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao23ActionPerformed
 
     private void botao19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao19ActionPerformed
@@ -683,8 +656,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 19; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao19ActionPerformed
 
     private void botao20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao20ActionPerformed
@@ -692,8 +664,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 20; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao20ActionPerformed
 
     private void botao16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao16ActionPerformed
@@ -701,8 +672,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 16; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao16ActionPerformed
 
     private void botao15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao15ActionPerformed
@@ -710,8 +680,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 15; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao15ActionPerformed
 
     private void botao11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao11ActionPerformed
@@ -719,8 +688,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 11;
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao11ActionPerformed
 
     private void botao12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao12ActionPerformed
@@ -729,16 +697,14 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
     
    
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao12ActionPerformed
 
     private void botao8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao8ActionPerformed
         // TODO add your handling code here:
          int numeroPoltronaSelecionada = 8;
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao8ActionPerformed
 
     private void botao7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao7ActionPerformed
@@ -746,8 +712,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 7; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao7ActionPerformed
 
     private void botao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao3ActionPerformed
@@ -755,8 +720,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 3; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao3ActionPerformed
 
     private void botao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao4ActionPerformed
@@ -764,8 +728,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
          int numeroPoltronaSelecionada = 4; 
     
     dispose();
-    TelaPagamento telaPagamento = new TelaPagamento();
-    telaPagamento.setVisible(true);
+TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao4ActionPerformed
 
     /**
