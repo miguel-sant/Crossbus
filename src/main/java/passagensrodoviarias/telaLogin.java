@@ -43,12 +43,11 @@ public class telaLogin extends javax.swing.JFrame {
         });       
         RoundedPanel roundedPanel = new RoundedPanel(40);
         roundedPanel.setLayout(new BorderLayout());
-        roundedPanel.setBackground(new Color(99,33,99,70)); // Define a cor de fundo com transparência
+        roundedPanel.setBackground(new Color(99,33,99,70)); 
         this.setTitle("Teste");
         
         
-// Adicione outros componentes ao roundedPanel conforme necessário
-// Exemplo: roundedPanel.add(new JLabel("Conteúdo do painel"));
+
         jPanel1.setLayout(new BorderLayout());
         jPanel1.add(roundedPanel, BorderLayout.CENTER);
 
@@ -61,8 +60,8 @@ public class telaLogin extends javax.swing.JFrame {
     public RoundedTextField(int columns, int radius) {
         super(columns);
         this.radius = radius;
-        setOpaque(false); // Torna o JTextField transparente
-        setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Define uma margem interna
+        setOpaque(false); 
+        setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); 
     }
 
     @Override
@@ -264,13 +263,13 @@ public class telaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        // Cria uma instância da tela de cadastro
+        
         telaCadastro cadastro = new telaCadastro();
 
-        // Oculta a tela de login atual
+       
         this.setVisible(false);
 
-        // Exibe a tela de cadastro
+        
         cadastro.setVisible(true);
     } 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
@@ -282,25 +281,25 @@ public class telaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_senhaActionPerformed
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-       // Verifica se o email e a senha correspondem a um usuário válido
+       
         String emailDigitado = email.getText();
         String senhaDigitada = new String(senha.getPassword());
 
-        // Consulta o banco de dados para verificar se o usuário existe
+        
         boolean usuarioValido = consultarUsuario(emailDigitado, senhaDigitada);
 
         if (usuarioValido) {
-            // Se as credenciais forem válidas, exibe uma mensagem de boas-vindas
+            
             JOptionPane.showMessageDialog(this, "Login bem-sucedido! Bem-vindo, " + emailDigitado + "!");
 
-            // Oculta a tela de login atual
+            
             this.setVisible(false);
 
-            // Cria e exibe a nova tela principal
+            
             telaHome telaHome = new telaHome();
             telaHome.setVisible(true);
         } else {
-            // Se as credenciais não forem válidas
+            
             JOptionPane.showMessageDialog(this, "Email ou senha inválidos. Por favor, tente novamente.", "Erro de Login", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAcessarActionPerformed
@@ -310,13 +309,13 @@ public class telaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_esqueceuSenhaMouseClicked
 
     private void newCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newCadastroMouseClicked
-        // Cria uma instância da tela de cadastro
+       
         telaCadastro cadastro = new telaCadastro();
 
-        // Oculta a tela de login atual
+       
         this.setVisible(false);
 
-        // Exibe a tela de cadastro
+        
         cadastro.setVisible(true);
     }//GEN-LAST:event_newCadastroMouseClicked
 
@@ -325,7 +324,7 @@ public class telaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAcessarMouseClicked
     
     private boolean consultarUsuario(String email, String senha) {
-        // Conexão com o banco de dados
+        
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -334,21 +333,21 @@ public class telaLogin extends javax.swing.JFrame {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/passagens", "root", "");
 
-            // Consulta SQL para verificar se o usuário existe
+            
             String sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, email);
             stmt.setString(2, senha);
             rs = stmt.executeQuery();
 
-            // Se houver um resultado, o usuário é válido
+            
             if (rs.next()) {
                 usuarioValido = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            // Fecha os recursos
+            
             if (rs != null) {
                 try {
                     rs.close();
@@ -379,20 +378,20 @@ public class telaLogin extends javax.swing.JFrame {
 
     public RoundedPanel(int radius) {
         this.radius = radius;
-        setOpaque(false); // Torna o JPanel transparente
+        setOpaque(false);
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Dimension arcs = new Dimension(radius, radius); // Tamanho do arco de borda
+        Dimension arcs = new Dimension(radius, radius); 
 
         int width = getWidth();
         int height = getHeight();
         Graphics2D graphics = (Graphics2D) g;
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // Desenha o painel com bordas arredondadas
+        
         graphics.setColor(getBackground());
         graphics.fillRoundRect(0, 0, width - 1, height - 1, arcs.width, arcs.height);
         graphics.setColor(getForeground());

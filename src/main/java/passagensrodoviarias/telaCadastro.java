@@ -20,9 +20,7 @@ import javax.swing.JPanel;
  */
 public class telaCadastro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form telaCadastro
-     */
+   
     public telaCadastro() {
         initComponents();
         setSize(1280, 860);
@@ -31,12 +29,11 @@ public class telaCadastro extends javax.swing.JFrame {
         
         telaCadastro.RoundedPanel roundedPanel = new telaCadastro.RoundedPanel(40);
         roundedPanel.setLayout(new BorderLayout());
-        roundedPanel.setBackground(new Color(99,33,99,70)); // Define a cor de fundo com transparência
+        roundedPanel.setBackground(new Color(99,33,99,70)); 
         this.setTitle("Teste");
         
         
-// Adicione outros componentes ao roundedPanel conforme necessário
-// Exemplo: roundedPanel.add(new JLabel("Conteúdo do painel"));
+
         formPanel.setLayout(new BorderLayout());
         formPanel.add(roundedPanel, BorderLayout.CENTER);
     }
@@ -45,20 +42,20 @@ public class RoundedPanel extends JPanel {
 
     public RoundedPanel(int radius) {
         this.radius = radius;
-        setOpaque(false); // Torna o JPanel transparente
+        setOpaque(false); 
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Dimension arcs = new Dimension(radius, radius); // Tamanho do arco de borda
+        Dimension arcs = new Dimension(radius, radius); 
 
         int width = getWidth();
         int height = getHeight();
         Graphics2D graphics = (Graphics2D) g;
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // Desenha o painel com bordas arredondadas
+    
         graphics.setColor(getBackground());
         graphics.fillRoundRect(0, 0, width - 1, height - 1, arcs.width, arcs.height);
         graphics.setColor(getForeground());
@@ -205,7 +202,7 @@ public class RoundedPanel extends JPanel {
     }//GEN-LAST:event_emailActionPerformed
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-       // Obtém os valores dos campos
+  
         String loginText = login.getText();
         char[] senhaArray = senha.getPassword();
         char[] senha2Array = senha2.getPassword();
@@ -214,9 +211,9 @@ public class RoundedPanel extends JPanel {
         String senha = new String(senhaArray);
         String senha2 = new String(senha2Array);
 
-        // Verificar se as senhas coincidem
+       
         if (senha.equals(senha2)) {
-            // Tentar inserir os dados no banco de dados
+            
             boolean cadastradoComSucesso = BancoDeDados.inserirDadosNoBanco(loginText, senha, nomeText, emailText);
 
             if (cadastradoComSucesso) {

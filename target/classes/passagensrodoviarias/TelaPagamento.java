@@ -21,14 +21,16 @@ import javax.swing.text.DocumentFilter;
  * @author miguelvarjao
  */
 public class TelaPagamento extends javax.swing.JFrame {
-    private int idPassagem;
+    private final int idPassagem;
+    private int numeroPoltronaSelecionada;
 
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USER = "root";
     private static final String PASSWORD = "";
     
-    public TelaPagamento() {
+    public TelaPagamento(int idPassagem) {
         this.idPassagem = idPassagem;
+        this.numeroPoltrona = numeroPoltrona;
         initComponents();
         getContentPane().setBackground(Color.WHITE);
         setSize(720, 560);
@@ -305,10 +307,10 @@ private void formatarNumeroCartao() {
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaPagamento().setVisible(true);
-            }
-        });
+    public void run() {
+        new TelaPagamento(numeroPoltronaSelecionada).setVisible(true);
+    }
+});
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

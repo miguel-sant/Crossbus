@@ -19,9 +19,7 @@ import javax.swing.JFrame;
  */
 public class SelecionarPoltrona extends javax.swing.JFrame {
   
-    /**
-     * Creates new form SelecionarPoltrona
-     */
+   
     public SelecionarPoltrona( ){
         initComponents();
          setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,17 +27,17 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
     }
      public static void atualizarCorBotao(int numeroPoltrona, JButton botao) {
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/passagens", "root", "")) {
-            // SQL para recuperar o estado da poltrona do banco de dados
+           
             String sql = "SELECT poltrona_comprada FROM passagens WHERE poltrona = ?";
             
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
-                // Define o número da poltrona na consulta SQL
+                
                 statement.setInt(1, numeroPoltrona);
                 
-                // Executa a consulta
+               
                 ResultSet resultSet = statement.executeQuery();
                 
-                // Se houver resultados, atualiza a cor do botão de acordo com o estado da poltrona
+               
                 if (resultSet.next()) {
                     int poltronaComprada = resultSet.getInt("poltrona_comprada");
                     if (poltronaComprada == 1) {
@@ -448,7 +446,7 @@ public class SelecionarPoltrona extends javax.swing.JFrame {
         // TODO add your handling code here:
          int numeroPoltronaSelecionada = 33; 
     
-    botao33.setBackground(Color.RED); // Define a cor de fundo do botão como vermelho
+    botao33.setBackground(Color.RED);
 TelaPagamento telaPagamento = new TelaPagamento(numeroPoltronaSelecionada);    telaPagamento.setVisible(true);
     }//GEN-LAST:event_botao33ActionPerformed
 

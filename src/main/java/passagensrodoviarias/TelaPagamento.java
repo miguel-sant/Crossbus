@@ -21,7 +21,7 @@ import javax.swing.text.DocumentFilter;
  * @author miguelvarjao
  */
 public class TelaPagamento extends javax.swing.JFrame {
-    private int idPassagem;
+    private final int idPassagem;
     private int numeroPoltronaSelecionada;
 
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
@@ -247,13 +247,12 @@ public class TelaPagamento extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAcessarMouseClicked
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-     // Exiba uma caixa de diálogo de confirmação
+     
     int opcao = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja realizar a compra?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 
-    // Verifique a opção selecionada pelo usuário
+  
     if (opcao == JOptionPane.YES_OPTION) {
-        // Se o usuário confirmar, prossiga com a lógica de salvar a compra
-        // Insira aqui o código para salvar a compra no banco de dados e fazer outras operações necessárias
+        
         JOptionPane.showMessageDialog(this, "Compra realizada com sucesso!", "Compra Realizada", JOptionPane.INFORMATION_MESSAGE);
         dispose();
         
@@ -261,7 +260,7 @@ public class TelaPagamento extends javax.swing.JFrame {
         telaSelecionarPoltrona.setVisible(true);
         
     } else {
-        // Se o usuário cancelar, não faça nada
+        
         JOptionPane.showMessageDialog(this, "Compra cancelada pelo usuário.", "Compra Cancelada", JOptionPane.WARNING_MESSAGE);
     }
     }//GEN-LAST:event_btnAcessarActionPerformed
@@ -282,7 +281,7 @@ private void formatarNumeroCartao() {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+       
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -305,7 +304,7 @@ private void formatarNumeroCartao() {
         }
         //</editor-fold>
         
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
     public void run() {
         new TelaPagamento(numeroPoltronaSelecionada).setVisible(true);
