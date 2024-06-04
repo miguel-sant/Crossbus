@@ -30,13 +30,11 @@ public class TelaPagamento extends javax.swing.JFrame {
     
     public TelaPagamento(int idPassagem) {
         this.idPassagem = idPassagem;
-        this.numeroPoltrona = numeroPoltrona;
         initComponents();
         getContentPane().setBackground(Color.WHITE);
         setSize(720, 560);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        ((AbstractDocument) jTextField1.getDocument()).setDocumentFilter(new NumberOnlyFilter(16));
 
     }
     class NumberOnlyFilter extends DocumentFilter {
@@ -256,27 +254,15 @@ public class TelaPagamento extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Compra realizada com sucesso!", "Compra Realizada", JOptionPane.INFORMATION_MESSAGE);
         dispose();
         
-        SelecionarPoltrona telaSelecionarPoltrona = new SelecionarPoltrona(idPassagem); // Supondo que você tenha o ID da passagem armazenado em algum lugar
-        telaSelecionarPoltrona.setVisible(true);
+        
+      
         
     } else {
         
         JOptionPane.showMessageDialog(this, "Compra cancelada pelo usuário.", "Compra Cancelada", JOptionPane.WARNING_MESSAGE);
     }
     }//GEN-LAST:event_btnAcessarActionPerformed
-private void formatarNumeroCartao() {
-    String texto = jTextField1.getText().replaceAll("[^0-9]", "");
-    StringBuilder formato = new StringBuilder();
-    
-    for (int i = 0; i < texto.length(); i++) {
-        if (i > 0 && i % 4 == 0) {
-            formato.append("-");
-        }
-        formato.append(texto.charAt(i));
-    }
-    
-    jLabel4.setText(formato.toString());
-}
+
     /**
      * @param args the command line arguments
      */
@@ -305,11 +291,6 @@ private void formatarNumeroCartao() {
         //</editor-fold>
         
         
-        java.awt.EventQueue.invokeLater(new Runnable() {
-    public void run() {
-        new TelaPagamento(numeroPoltronaSelecionada).setVisible(true);
-    }
-});
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -93,7 +93,7 @@ public class CadastrarCidade extends javax.swing.JFrame {
                                                 
         String url = "jdbc:mysql://localhost:3306/passagens";
         String user = "root";
-        String password = "password";
+        String password = "";
 
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
