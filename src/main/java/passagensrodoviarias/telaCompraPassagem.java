@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import javax.swing.JFrame;
@@ -20,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class telaCompraPassagem extends javax.swing.JFrame {
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USER = "root";
-    private static final String PASSWORD = "password";
+    private static final String PASSWORD = "";
     
     public telaCompraPassagem() {
         initComponents();
@@ -54,6 +55,8 @@ public class telaCompraPassagem extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         buscarOrigem = new javax.swing.JTextField();
         buscarPassagens = new javax.swing.JButton();
+        buttonVoltar = new javax.swing.JButton();
+        comprarPassagem = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 64)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,6 +127,22 @@ public class telaCompraPassagem extends javax.swing.JFrame {
         });
         jPanel1.add(buscarPassagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, -1, -1));
 
+        buttonVoltar.setText("Voltar");
+        buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonVoltarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(buttonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 750, 110, 40));
+
+        comprarPassagem.setText("Comprar");
+        comprarPassagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comprarPassagemActionPerformed(evt);
+            }
+        });
+        jPanel1.add(comprarPassagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 750, 110, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,6 +207,111 @@ public class telaCompraPassagem extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buscarPassagensActionPerformed
 
+    private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_buttonVoltarActionPerformed
+
+    private void comprarPassagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarPassagemActionPerformed
+        int selectedRow = tablePassagens.getSelectedRow();
+        if (selectedRow == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecione uma passagem para comprar.");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tablePassagens.getModel();
+        String origem = model.getValueAt(selectedRow, 0).toString();
+        String destino = model.getValueAt(selectedRow, 1).toString();
+        String dataPartida = model.getValueAt(selectedRow, 2).toString();
+        String horaPartida = model.getValueAt(selectedRow, 3).toString();
+        String onibus = model.getValueAt(selectedRow, 4).toString();
+        String valor = model.getValueAt(selectedRow, 5).toString();
+        int poltronasLivres = Integer.parseInt(model.getValueAt(selectedRow, 6).toString());
+
+        System.out.println("Origem: " + origem);
+        System.out.println("Destino: " + destino);
+        System.out.println("Data Partida: " + dataPartida);
+        System.out.println("Hora Partida: " + horaPartida);
+        System.out.println("Onibus: " + onibus);
+        System.out.println("Valor: " + valor);
+        System.out.println("Poltronas Livres: " + poltronasLivres);
+
+        valor = valor.replace("R$ ", "").replace(".", "").replace(",", ".");
+        double valorPago = Double.parseDouble(valor);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        java.sql.Date sqlDataPartida = null;
+        try {
+            sqlDataPartida = new java.sql.Date(sdf.parse(dataPartida).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            javax.swing.JOptionPane.showMessageDialog(this, "Erro ao converter a data: " + e.getMessage());
+            return;
+        }
+
+        horaPartida += ":00";
+        java.sql.Time sqlHoraPartida = java.sql.Time.valueOf(horaPartida);
+
+        String queryPassagem = "SELECT id FROM passagens WHERE id_cidade_origem = (SELECT id FROM cidades WHERE nome_cidade = ?) " +
+                               "AND id_cidade_destino = (SELECT id FROM cidades WHERE nome_cidade = ?) " +
+                               "AND data_saida = ? AND hora_saida = ? AND id_veiculo = (SELECT id FROM veiculos WHERE numero = ?)";
+
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement preparedStatementPassagem = connection.prepareStatement(queryPassagem)) {
+
+            preparedStatementPassagem.setString(1, origem);
+            preparedStatementPassagem.setString(2, destino);
+            preparedStatementPassagem.setDate(3, sqlDataPartida);
+            preparedStatementPassagem.setTime(4, sqlHoraPartida);
+            preparedStatementPassagem.setString(5, onibus);
+
+            System.out.println(preparedStatementPassagem.toString());
+
+            try (ResultSet resultSetPassagem = preparedStatementPassagem.executeQuery()) {
+                if (resultSetPassagem.next()) {
+                    int idPassagem = resultSetPassagem.getInt("id");
+
+                    // Criar interface de seleção de poltrona
+                    Integer[] poltronas = new Integer[poltronasLivres];
+                    for (int i = 0; i < poltronasLivres; i++) {
+                        poltronas[i] = i + 1;
+                    }
+                    Integer poltronaEscolhida = (Integer) javax.swing.JOptionPane.showInputDialog(
+                            this,
+                            "Selecione a poltrona:",
+                            "Seleção de Poltrona",
+                            javax.swing.JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            poltronas,
+                            poltronas[0]);
+
+                    if (poltronaEscolhida == null) {
+                        javax.swing.JOptionPane.showMessageDialog(this, "Nenhuma poltrona selecionada.");
+                        return;
+                    }
+
+                    String insertReserva = "INSERT INTO reservas (id_passagem, numero_assento, valor_pago) VALUES (?, ?, ?)";
+                    try (PreparedStatement preparedStatementReserva = connection.prepareStatement(insertReserva)) {
+                        preparedStatementReserva.setInt(1, idPassagem);
+                        preparedStatementReserva.setInt(2, poltronaEscolhida);
+                        preparedStatementReserva.setDouble(3, valorPago);
+                        preparedStatementReserva.executeUpdate();
+
+                        javax.swing.JOptionPane.showMessageDialog(this, "Passagem comprada com sucesso!");
+                    }
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Erro ao encontrar a passagem.");
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            javax.swing.JOptionPane.showMessageDialog(this, "Erro ao comprar a passagem: " + ex.getMessage());
+        } catch (IllegalArgumentException ex) {
+            ex.printStackTrace();
+            javax.swing.JOptionPane.showMessageDialog(this, "Dados inválidos: " + ex.getMessage());
+        }
+
+    }//GEN-LAST:event_comprarPassagemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -227,6 +351,8 @@ public class telaCompraPassagem extends javax.swing.JFrame {
     private javax.swing.JTextField buscarDestino;
     private javax.swing.JTextField buscarOrigem;
     private javax.swing.JButton buscarPassagens;
+    private javax.swing.JButton buttonVoltar;
+    private javax.swing.JButton comprarPassagem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

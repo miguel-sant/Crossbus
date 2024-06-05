@@ -4,6 +4,8 @@
  */
 package passagensrodoviarias;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -48,7 +50,7 @@ public class TelaCidade extends javax.swing.JFrame {
         for(int i=0; i<tableCidades.getColumnCount(); i++) {
             tableCidades.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
         }
-    }
+    }   
     
     private void carregarDadosTabela() {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
@@ -120,6 +122,7 @@ public class TelaCidade extends javax.swing.JFrame {
         searchSigla = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         searchUf = new javax.swing.JTextField();
+        editarCidade = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -173,7 +176,7 @@ public class TelaCidade extends javax.swing.JFrame {
                 adicionarCidadeActionPerformed(evt);
             }
         });
-        jPanel1.add(adicionarCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 400, 110, 40));
+        jPanel1.add(adicionarCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 420, 110, 40));
 
         atualizarCidade.setText("Atualizar");
         atualizarCidade.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +184,7 @@ public class TelaCidade extends javax.swing.JFrame {
                 atualizarCidadeActionPerformed(evt);
             }
         });
-        jPanel1.add(atualizarCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 510, 110, 40));
+        jPanel1.add(atualizarCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 640, 110, 40));
 
         excluirCidade.setText("Excluir cidade");
         excluirCidade.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +192,7 @@ public class TelaCidade extends javax.swing.JFrame {
                 excluirCidadeActionPerformed(evt);
             }
         });
-        jPanel1.add(excluirCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 630, 110, 40));
+        jPanel1.add(excluirCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 750, 110, 40));
 
         buttonVoltar.setText("Voltar");
         buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -230,6 +233,14 @@ public class TelaCidade extends javax.swing.JFrame {
         jLabel2.setText("UF");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 240, -1, -1));
         jPanel1.add(searchUf, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 240, 70, 40));
+
+        editarCidade.setText("Editar cidade");
+        editarCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarCidadeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(editarCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 530, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -316,6 +327,27 @@ public class TelaCidade extends javax.swing.JFrame {
 
     }//GEN-LAST:event_searchSiglaActionPerformed
 
+    private void editarCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarCidadeActionPerformed
+        editarCidade();
+    }//GEN-LAST:event_editarCidadeActionPerformed
+
+    
+    private void editarCidade() {
+        int linhaSelecionada = tableCidades.getSelectedRow();
+        if (linhaSelecionada == -1) {
+            JOptionPane.showMessageDialog(this, "Nenhuma linha selecionada.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tableCidades.getModel();
+        String nomeCidade = (String) model.getValueAt(linhaSelecionada, 0);
+        String sigla = (String) model.getValueAt(linhaSelecionada, 1);
+        String uf = (String) model.getValueAt(linhaSelecionada, 2);
+
+        // Exibir tela de edição com os dados da cidade selecionada
+        EditarCidade editarCidade = new EditarCidade(nomeCidade, sigla, uf);
+        editarCidade.setVisible(true);
+    }
     private int getLinhaSelecionada() {
         return tableCidades.getSelectedRow();
     }
@@ -393,6 +425,7 @@ public class TelaCidade extends javax.swing.JFrame {
     private javax.swing.JButton adicionarCidade;
     private javax.swing.JButton atualizarCidade;
     private javax.swing.JButton buttonVoltar;
+    private javax.swing.JButton editarCidade;
     private javax.swing.JButton excluirCidade;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
