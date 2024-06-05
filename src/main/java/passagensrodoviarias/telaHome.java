@@ -72,6 +72,7 @@ public class telaHome extends javax.swing.JFrame {
         jPanel2.add(Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 780, 150, 50));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.magenta, java.awt.Color.magenta, java.awt.Color.magenta, java.awt.Color.magenta));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("VEICULOS");
@@ -105,7 +106,15 @@ public class telaHome extends javax.swing.JFrame {
         jPanel1.add(manterViagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
 
         faturamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/grafico-de-crescimento.png"))); // NOI18N
-        faturamento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        faturamento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        faturamento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                faturamentoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                faturamentoMouseEntered(evt);
+            }
+        });
         jPanel1.add(faturamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
         manterRotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/rota (1).png"))); // NOI18N
@@ -167,6 +176,16 @@ public class telaHome extends javax.swing.JFrame {
         telaCompraPassagem telaPassagem = new telaCompraPassagem();
         telaPassagem.setVisible(true);
     }//GEN-LAST:event_manterViagensMouseClicked
+
+    private void faturamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_faturamentoMouseClicked
+
+        TelaFaturamento TelaFaturamento = new TelaFaturamento();
+        TelaFaturamento.setVisible(true);
+    }//GEN-LAST:event_faturamentoMouseClicked
+
+    private void faturamentoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_faturamentoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_faturamentoMouseEntered
 
     /**
      * @param args the command line arguments

@@ -18,12 +18,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author gabri
  */
-public class Faturamento extends javax.swing.JFrame {
+public class TelaFaturamento extends javax.swing.JFrame {
 
     /**
      * Creates new form Faturamento
      */
-    public Faturamento() {
+    public TelaFaturamento() {
         initComponents();
         
         setTitle("FATURAMENTO");
@@ -119,7 +119,7 @@ public class Faturamento extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableFaturamento);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 830, 490));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 830, 490));
 
         buttonVoltar.setText("Voltar");
         buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ public class Faturamento extends javax.swing.JFrame {
                 buttonVoltarActionPerformed(evt);
             }
         });
-        jPanel1.add(buttonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 760, 110, 40));
+        jPanel1.add(buttonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 720, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,20 +164,21 @@ public class Faturamento extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Faturamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaFaturamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Faturamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaFaturamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Faturamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaFaturamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Faturamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaFaturamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Faturamento().setVisible(true);
+                new TelaFaturamento().setVisible(true);
             }
         });
     }
