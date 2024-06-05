@@ -4,6 +4,10 @@
  */
 package passagensrodoviarias;
 
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -28,7 +32,7 @@ public class telaRota extends javax.swing.JFrame {
 
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USER = "root";
-    private static final String PASSWORD = "password";
+    private static final String PASSWORD = "";
     
     public telaRota() {
         initComponents();
@@ -51,7 +55,7 @@ public class telaRota extends javax.swing.JFrame {
         }
         
     }
-    
+ 
     public void atualizarTabelaRotas() {
         DefaultTableModel model = (DefaultTableModel) tableRotas.getModel();
         model.setRowCount(0);
@@ -115,6 +119,7 @@ public class telaRota extends javax.swing.JFrame {
         atualizarRotas = new javax.swing.JButton();
         excluirRota = new javax.swing.JButton();
         buttonVoltar = new javax.swing.JButton();
+        editarRota = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -229,7 +234,7 @@ public class telaRota extends javax.swing.JFrame {
                 excluirRotaActionPerformed(evt);
             }
         });
-        jPanel1.add(excluirRota, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 580, 110, 40));
+        jPanel1.add(excluirRota, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 590, 110, 40));
 
         buttonVoltar.setText("Voltar");
         buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -238,6 +243,14 @@ public class telaRota extends javax.swing.JFrame {
             }
         });
         jPanel1.add(buttonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 750, 110, 40));
+
+        editarRota.setText("Editar rota");
+        editarRota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarRotaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(editarRota, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 430, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -384,6 +397,10 @@ public class telaRota extends javax.swing.JFrame {
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
+
+    private void editarRotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarRotaActionPerformed
+    
+    }//GEN-LAST:event_editarRotaActionPerformed
     private void carregarDadosTabela() {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
             String sql = "SELECT origem.nome_cidade AS origem, destino.nome_cidade AS destino, veiculos.numero AS numero_onibus, data_saida, hora_saida, id_veiculo, valor_passagem, poltrona " +
@@ -481,7 +498,7 @@ public class telaRota extends javax.swing.JFrame {
         try {
             String url = "jdbc:mysql://localhost:3306/passagens";
             String user = "root";
-            String password = "password";
+            String password = "";
 
             conn = DriverManager.getConnection(url, user, password);
 
@@ -522,7 +539,7 @@ public class telaRota extends javax.swing.JFrame {
         try {
             String url = "jdbc:mysql://localhost:3306/passagens";
             String user = "root";
-            String password = "password";
+            String password = "";
 
             conn = DriverManager.getConnection(url, user, password);
 
@@ -585,6 +602,7 @@ public class telaRota extends javax.swing.JFrame {
     private javax.swing.JButton buttonVoltar;
     private javax.swing.JButton cadastrarRota;
     private javax.swing.JTextField dataPartida;
+    private javax.swing.JButton editarRota;
     private javax.swing.JButton excluirRota;
     private javax.swing.JTextField horaPartida;
     private javax.swing.JLabel jLabel1;

@@ -23,7 +23,7 @@ public class TelaPagamento extends javax.swing.JFrame {
 
     private static final String URL = "jdbc:mysql://localhost:3306/passagens";
     private static final String USER = "root";
-    private static final String PASSWORD = "SetRootPasswordHere";
+    private static final String PASSWORD = "";
     
     public TelaPagamento() {
         initComponents();
@@ -248,7 +248,7 @@ public class TelaPagamento extends javax.swing.JFrame {
     String anoExpiracao = jTextField4.getText();
     String cvv = jTextField6.getText();
     int idUsuario = 1; // Defina o ID do usuário aqui
-    try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/passagens", "root", "SetRootPasswordHere")) {
+    try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/passagens", "root", "")) {
         String sql = "INSERT INTO dadoscartao (numero_cartao, nome_proprietario, mes_expiracao, ano_expiracao, cvv, id_usuario) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, numeroCartao);
