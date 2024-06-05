@@ -153,6 +153,7 @@ public class telaOnibus extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         searchMotorista = new javax.swing.JTextField();
         atualizarTable = new javax.swing.JButton();
+        editarVeiculos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 0, 255));
@@ -194,7 +195,7 @@ public class telaOnibus extends javax.swing.JFrame {
                 excluirVeiculoActionPerformed(evt);
             }
         });
-        jPanel1.add(excluirVeiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 630, 110, 40));
+        jPanel1.add(excluirVeiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 750, 110, 40));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Black", 0, 64)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -238,7 +239,7 @@ public class telaOnibus extends javax.swing.JFrame {
                 adicionarOnibusActionPerformed(evt);
             }
         });
-        jPanel1.add(adicionarOnibus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 400, 110, 40));
+        jPanel1.add(adicionarOnibus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 410, 110, 40));
 
         searchVeiculo.setText("Consultar");
         searchVeiculo.addActionListener(new java.awt.event.ActionListener() {
@@ -265,7 +266,15 @@ public class telaOnibus extends javax.swing.JFrame {
                 atualizarTableActionPerformed(evt);
             }
         });
-        jPanel1.add(atualizarTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 510, 110, 40));
+        jPanel1.add(atualizarTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 640, 110, 40));
+
+        editarVeiculos.setText("Editar veiculo");
+        editarVeiculos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarVeiculosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(editarVeiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 520, 110, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 870));
 
@@ -340,6 +349,10 @@ public class telaOnibus extends javax.swing.JFrame {
          atualizarTabelaVeiculos();
     }//GEN-LAST:event_atualizarTableActionPerformed
 
+    private void editarVeiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarVeiculosActionPerformed
+
+    }//GEN-LAST:event_editarVeiculosActionPerformed
+
     private int getLinhaSelecionada() {
         return tableVeiculos.getSelectedRow();
     }
@@ -413,6 +426,7 @@ public class telaOnibus extends javax.swing.JFrame {
     private javax.swing.JButton adicionarOnibus;
     private javax.swing.JButton atualizarTable;
     private javax.swing.JButton buttonVoltar;
+    private javax.swing.JButton editarVeiculos;
     private javax.swing.JButton excluirVeiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
